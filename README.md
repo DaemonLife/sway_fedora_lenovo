@@ -1,3 +1,8 @@
+# Config for Sway, Fedora 34, Lenovo ideapad 5 15are05
+
+
+# ...
+
 # Installation of Arch Linux with Wayland and Sway on fully encrypted disk with LVM2 enabled
 
 I created this repository with README because I was dissatisfied with Xorg. I used Lenovo Carbon X1 Gen 6 with [Arch Linux + i3 + tmux](https://github.com/gen1us2k/linuxdotfiles) for my development environment. Last year I bought Lenovo Thinkpad T14 Gen 1 and tried to use [Ubuntu with Regolith Linux](https://github.com/gen1us2k/regolith-dotfiles). I had a few problems with my previous setup:
