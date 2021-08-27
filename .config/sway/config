@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+
+font pango: SourceCodePro Medium 12
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -14,78 +17,69 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term alacritty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu wofi --show=drun --lines=5 --prompt=""
-
+set $menu wofi --show run
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+output * bg /usr/share/backgrounds/default.png fill
 
 ### Idle configuration
-#
-# Example configuration:
-exec swayidle -w \
-         timeout 60 'swaylock \
-	--screenshots \
-	--clock \
-	--indicator \
-	--indicator-radius 80 \
-	--indicator-thickness 4 \
-	--effect-blur 7x5 \
-	--effect-vignette 0.5:0.5 \
-	--ring-color bb00cc \
-	--key-hl-color 880033 \
-	--line-color 00000000 \
-	--INside-color 00000088 \
-	--separator-color 00000000 \
-	--grace 10 \
-	--fade-in 0.2' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000'
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-input "1739:0:Synaptics_TM3471-010" {
-    dwt enabled
+input "type:keyboard" {
+    xkb_layout us,ru
+    xkb_options grp:win_space_toggle
+	}	
+
+input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
+    dwt enabled	# disable-while-typing
     tap enabled
     natural_scroll enabled
     middle_emulation enabled
-}
-input "type:keyboard" {
-    xkb_layout us,ru
-    xkb_variant ,
-    xkb_options grp:caps_toggle
-}
-#
+    drag disabled
+    pointer_accel 0.04
+    accel_profile adaptive # flat/adaptive
+   }
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
-### Key bindings
-#
-# Basics:
-#
+gaps inner 10
+default_border none
+
+# set $opacity 0.9
+# for_window [class=".*"] opacity $opacity
+# for_window [app_id=".*"] opacity $opacity
+
+bindsym XF86MonBrightnessUp exec sudo light -A 10
+bindsym XF86MonBrightnessDown exec sudo light -U 10
+bindsym $mod+XF86MonBrightnessUp exec sudo light -A 2
+bindsym $mod+XF86MonBrightnessDown exec sudo light -U 2
+
+#Audio controls
+bindsym --to-code $mod+Ctrl+p exec pavucontrol
+bindsym --to-code XF86AudioRaiseVolume exec amixer set Master 5%+
+bindsym --to-code XF86AudioLowerVolume exec amixer set Master 5%-
+bindsym --to-code XF86AudioMute exec amixer set Master toggle
+bindsym --to-code XF86AudioPlay exec playerctl play-pause
+# bindsym --to-code XF86AudioPause exec playerctl play-pause
+# bindsym --to-code XF86AudioNext exec playerctl next
+# bindsym --to-code XF86AudioPrev exec playerctl previous
+# bindsym --to-code XF86AudioStop exec playerctl previous
+
+
+# swayidle -d -w timeout 5 'exec swaylock -d'
+
+# exec swayidle -d -w  timeout 5 'exec swaylock -d'
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 400 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
     # Start a terminal
     bindsym $mod+Return exec $term
 
@@ -94,22 +88,6 @@ input "type:keyboard" {
 
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    bindsym Ctrl+Alt+l exec 'swaylock \
-        --screenshots \
-        --clock \
-        --indicator \
-        --indicator-radius 80 \
-        --indicator-thickness 4 \
-        --effect-blur 7x5 \
-        --effect-vignette 0.5:0.5 \
-        --ring-color bb00cc \
-        --key-hl-color 880033 \
-        --line-color 00000000 \
-        --inside-color 00000088 \
-        --separator-color 00000000 \
-	--grace 1 \
-        --fade-in 0.2'
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -230,40 +208,17 @@ mode "resize" {
     bindsym Up resize shrink height 10px
     bindsym Right resize grow width 10px
 
-    # Return to default mode
+    # Return o default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-assign [app_id="telegramdesktop"] 1
-assign [app_id="Slack"] 1
-assign [app_id="Google-chrome-unstable"] 2
-assign [class="Skype"] 1
-
-
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -2%; exec pactl set-sink-mute @DEFAULT_SINK@ 0
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
-bindsym XF86MonBrightnessUp exec brightnessctl s 5%+ # increase screen brightness
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%- # decrease screen brightness
-bindsym Shift+print exec slurp | grim -g - - | wl-copy
 
 #
 # Status Bar:
 #
-# Read `man 5 sway-bar` for more information about this section.
 bar {
-    swaybar_command waybar
+	swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
-
-#exec --no-startup-id /usr/bin/sway-xkb-switcher
-exec --no-startup-id /usr/bin/swaykbdd
-exec --no-startup-id /usr/bin/redshift-gtk
-exec /usr/bin/google-chrome-unstable
-exec /usr/bin/slack --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec /usr/bin/skypeforlinux # --enable-features=UseOzonePlatform --ozone-platform=wayland
-exec /usr/bin/telegram-desktop
-exec /usr/bin/nm-applet --indicator
