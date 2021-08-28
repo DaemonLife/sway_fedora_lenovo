@@ -61,6 +61,20 @@ sudo dnf -y install gnome-shell-extension-pop-shell && enable pop-shell@system76
 
 sudo chsh -s $(which zsh) && reboot
 
-# Графическое управление аудио устройствами (выход, вход) для Sway
-sudo dnf install pavucontrol   
+#
+# For Sway
+#
+# Графическое управление аудио устройствами (выход, вход(!))
+sudo dnf install pavucontrol  
+
+# работа с bluetooth
+bluetoothctl scan on # скан устройств
+bluetoothctl pair [addres]
+bluetoothctl trust [addres] # доверять устройству, обязательно
+bluetoothctl connect [addres] # повторное подключение (возможно и первое)
+
+
+# Переключение каналов звука на выход
+pactl list sinks # список устройств (автоматически предложит установить пакет для работы pactl)
+pactl set-default-sink [номер] # дефолтное устройство выхода 
 
