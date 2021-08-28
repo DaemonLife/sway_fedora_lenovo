@@ -61,3 +61,6 @@ sudo dnf -y install gnome-shell-extension-pop-shell && enable pop-shell@system76
 
 sudo chsh -s $(which zsh) && reboot
 
+# Графическое управление аудио устройствами (выход, вход) для Sway
+sudo dnf install pavucontrol   
+
