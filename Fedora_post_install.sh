@@ -64,8 +64,17 @@ sudo chsh -s $(which zsh) && reboot
 #
 # For Sway
 #
+
 # Графическое управление аудио устройствами (выход, вход(!))
 sudo dnf install pavucontrol  
+
+# go to Pulseaudio (enable RPM) https://russianfedora.github.io/FAQ/hardware.html#index-66 
+sudo dnf swap pipewire-pulseaudio pulseaudio --allowerasing
+sudo systemctl reboot
+# codecs for bluetooth
+sudo dnf swap pulseaudio-module-bluetooth pulseaudio-module-bluetooth-freeworld --allowerasing
+pulseaudio -k; pulseaudio -D # restart pulse
+# Переключение кодеков в pavucontrol (Иначе же - конфигурационные файлы pulse в ~ или / и alsa в /)
 
 # работа с bluetooth
 bluetoothctl scan on # скан устройств
@@ -73,8 +82,7 @@ bluetoothctl pair [addres]
 bluetoothctl trust [addres] # доверять устройству, обязательно
 bluetoothctl connect [addres] # повторное подключение (возможно и первое)
 
-
-# Переключение каналов звука на выход
+# Переключение каналов звука на выход (Работа с Pulseaudio через pactl)
 pactl list sinks # список устройств (автоматически предложит установить пакет для работы pactl)
 pactl set-default-sink [номер] # дефолтное устройство выхода 
 
