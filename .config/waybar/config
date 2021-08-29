@@ -13,12 +13,7 @@
         "spacing": 10,
     },
     "clock": {
-        "format": "{:%Y %b %d %R}"
-    },
-    "custom/japan": {
-        "format": "{}",
-        "exec": "TZ=Asia/Tokyo date \"+%H:%M %Z\"",
-        "interval": 30,
+        "format": "{:%R %d %b %Y}"
     },
     "cpu": {
         "format": " {usage}%"
@@ -32,11 +27,12 @@
     },
     "battery": {
         "bat": "BAT0",
+        "interval": 60,
         "full-at": 95,
         "states": {
             "good": 95,
-            "warning": 30,
-            "critical": 15
+            "warning": 40,
+            "critical": 20
         },
         "format": "{icon} {capacity}%",
         "format-icons": ["", "", "", "", ""]
@@ -44,14 +40,6 @@
     "network": {
         "format-wifi": " {essid}",
         "format-disconnected": "⚠ Disconnected"
-    },
-    "custom/checkupdates": {
-      "exec": "~/.config/checkupdates.sh",
-      "return-type": "json",
-      "interval": 7200,
-      "format": " {}",
-      "on-click": "kitty -e pamac upgrade && pkill -SIGRTMIN+8 waybar",
-      "signal": 8
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
@@ -73,12 +61,5 @@
       "exec": "swaymsg -t get_inputs | grep layout_name | grep -v En | awk 'END{if(NR == 0){print \"EN\"}else{print toupper(substr($2,2,2))}}'",
       "interval": 1,
       "format": "{} "
-    },
-    "custom/ddcutil": {
-      "format": "{percentage}% {icon}",
-      "interval": 1,
-      "format-icons": ["", "", ""],
-      "exec": "~/.config/waybar-ddcutil.py",
-      "return-type": "json"
     },
 }
