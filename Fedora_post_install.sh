@@ -65,7 +65,7 @@ sudo chsh -s $(which zsh) && reboot
 # For Sway
 #
 
-# Графическое управление аудио устройствами (выход, вход(!))
+# Графическое управление аудио устройствами (выход, вход)
 sudo dnf install pavucontrol  
 
 # go to Pulseaudio (enable RPM) https://russianfedora.github.io/FAQ/hardware.html#index-66 
