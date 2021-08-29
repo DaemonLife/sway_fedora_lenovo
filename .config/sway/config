@@ -18,7 +18,11 @@ set $term gnome-terminal
 set $menu wofi --show run
 
 ### Output configuration
-#
+# swaymsg -t get_outputs
+
+output eDP-1 pos 0 0 res 1920x1080
+output HDMI-A-1 pos 1920 0 res 1920x1080
+
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/default.png fill
 
@@ -213,3 +217,4 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
