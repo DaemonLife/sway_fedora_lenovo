@@ -86,3 +86,9 @@ bluetoothctl connect [addres] # повторное подключение (во�
 pactl list sinks # список устройств (автоматически предложит установить пакет для работы pactl)
 pactl set-default-sink [номер] # дефолтное устройство выхода 
 
+# Wifi
+sudo dnf install nmtui
+
+# connection
+# nmcli dev wifi rescan
+# nmtui
