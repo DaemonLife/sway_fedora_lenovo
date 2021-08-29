@@ -1,9 +1,6 @@
 # Default config for sway
 #
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
 # Read `man 5 sway` for a complete reference.
-
 
 font pango: SourceCodePro Medium 12
 
@@ -18,9 +15,6 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term gnome-terminal
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
 set $menu wofi --show run
 
 ### Output configuration
@@ -28,13 +22,10 @@ set $menu wofi --show run
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/default.png fill
 
-### Idle configuration
-
 input "type:keyboard" {
     xkb_layout us,ru
     xkb_options grp:win_space_toggle
 	}	
-
 input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
     dwt enabled	# disable-while-typing
     tap enabled
@@ -45,16 +36,15 @@ input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
     accel_profile adaptive # flat/adaptive
    }
 
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
 seat seat0 xcursor_theme Vimix-dark 25
+
 gaps inner 10
 default_border none
 
 set $opacity 0.5
-# for_window [class=".*"] opacity $opacity
-# for_window [app_id=".*"] opacity $opacity
 set $alacrity opacity 0.5
+
+bindsym $mod+P exec grim -g "$(slurp)" ~/screenshot.png
 
 bindsym XF86MonBrightnessUp exec sudo light -A 10
 bindsym XF86MonBrightnessDown exec sudo light -U 10
@@ -83,28 +73,20 @@ bindsym XF86AudioStop exec #
 # Other
 bindsym XF86Calculator exec gnome-calculator
 
-# exec swayidle -d -w  timeout 5 'exec swaylock -d'
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 400 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
+   
     # Start a terminal
     bindsym $mod+Return exec $term
-
     # Kill focused window
     bindsym $mod+Shift+q kill
-
     # Start your launcher
     bindsym $mod+d exec $menu
-
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
-
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
