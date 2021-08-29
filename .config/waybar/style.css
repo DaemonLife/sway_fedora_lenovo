@@ -1,39 +1,45 @@
 * {
     border: none;
+    margin: 0px 0px 0px 0px;
     border-radius: 0;
     font-family: "Ubuntu Nerd Font";
     font-size: 13px;
     min-height: 0;
-    background-color: rgba(44,62,80,0.8);
+    /* background-color: rgba(44,62,80,0.8); */
 }
 
 window#waybar {
-    background: transparent;
+    background-color: red;
+    background: rgba(44,62,80,0.8);
     color: white;
 }
 
 #window {
+    /* background-color: rgb(44,61,80); */
+    /* padding: 0 10 0 10; */
     font-family: "Ubuntu";
-    margin-top: 5px;
 }
 
 
 #workspaces button {
     padding: 0 5px;
-    background: transparent;
-    color: white;
-    border-top: 2px solid transparent;
 }
 
 #workspaces button.focused {
     color: white;
-    border-top: 2px solid white;
+    background-color: #E6577B;
+    font-weight: bold;
 }
 
-#tray, #custom-japan, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio {
-    padding: 0 5px;
-    margin-right: 5px;
-    margin-top: 5px;
+#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio {
+    margin-right: 8px;
+    margin-left: 10px;
+}
+
+
+#clock{
+    margin-left: 7px;
+    margin-right: 11px;
 }
 
 #temperature.critical {
