@@ -39,7 +39,8 @@
     },
     "network": {
         "format-wifi": " {essid}",
-        "format-disconnected": "⚠ Disconnected"
+        "format-disconnected": "  Disconnected ",
+        "on-click": "nmcli dev wifi rescan && gnome-terminal -- zsh -c nmtui"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
