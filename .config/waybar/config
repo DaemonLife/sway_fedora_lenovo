@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "temperature", "cpu", "memory", "battery", "idle_inhibitor", "clock", "tray", "custom/lang", "custom/checkupdates"],
+    "modules-right": ["pulseaudio", "network", "temperature", "cpu", "memory", "idle_inhibitor", "battery", "clock", "tray", "custom/lang", "custom/checkupdates"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": true,
