@@ -23,11 +23,25 @@ gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
 gsettings set org.gnome.desktop.peripherals.mouse accel-profile adaptive
 gsettings set org.gnome.desktop.interface show-battery-percentage true
 ~~~
-Enable RPM
+Enable RPM and Flatpak
 ~~~
 sudo dnf -y install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ~~~
 Update system. Press Alt+Ctrl+F3 to enter safe terminal mode. Alt+Ctrl+F2 to get back after all. 
 ~~~
 sudo dnf -y upgrade
+~~~
+Installing battery power soft to control your battare. Useful. Save power, get status etc.
+~~~
+sudo dnf -y install tlp tlp-rdw
+sudo systemctl enable tlp
+~~~
+Installing other soft and fonts. Love it ^.^
+~~~
+# fonts
+sudo dnf -y install levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla-fira-mono-fonts google-droid-sans-mono-fonts dejavu-sans-mono-fonts
+# soft
+sudo dnf -y install vlc neovim zsh
+flatpak -y install celluloid telegram spotify org.gnome.Extensions
 ~~~
