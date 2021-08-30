@@ -21,7 +21,7 @@ set $menu wofi --show run
 # swaymsg -t get_outputs
 
 output eDP-1 pos 0 0 res 1920x1080
-output HDMI-A-1 pos 1920 0 res 1920x1080
+# output HDMI-A-1 pos 1920 0 res 1920x1080
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/default.png fill
@@ -55,15 +55,8 @@ bindsym XF86MonBrightnessDown exec sudo light -U 10
 bindsym $mod+XF86MonBrightnessUp exec sudo light -A 2
 bindsym $mod+XF86MonBrightnessDown exec sudo light -U 2
 
-#Audio controls
-bindsym $mod+Ctrl+p exec pavucontrol
-# for amixer
-# bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
-# bindsym XF86AudioLowerVolume exec amixer set Master 5%-
-# bindsym XF86AudioMute exec amixer set Master toggle
-# bindsym XF86AudioMicMute exec amixer sset Capture toggle
-
-#for pulseaudio (aptx support, no bugs)
+# Audio controls
+# bindsym $mod+Ctrl+p exec pavucontrol
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
@@ -73,6 +66,10 @@ bindsym XF86AudioPrev exec #
 bindsym XF86AudioNext exec # 
 bindsym XF86AudioPlay exec # 
 bindsym XF86AudioStop exec #
+
+# commands for change output device
+# pactl list sinks
+# pactl set-default-sink
 
 # Other
 bindsym XF86Calculator exec gnome-calculator
@@ -86,7 +83,7 @@ exec swayidle -w \
     # Start a terminal
     bindsym $mod+Return exec $term
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym --to-code $mod+Shift+q kill
     # Start your launcher
     bindsym $mod+d exec $menu
     # mouse button for dragging.
@@ -217,4 +214,3 @@ bar {
 }
 
 include /etc/sway/config.d/*
-
