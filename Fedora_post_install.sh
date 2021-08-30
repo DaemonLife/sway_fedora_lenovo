@@ -57,7 +57,7 @@ echo "Firefox gnome theme"
 cd ~/Downloads && git clone https://github.com/rafaelmardojai/firefox-gnome-theme && cd firefox-gnome-theme
 ./scripts/auto-install.sh
 
-sudo dnf -y install gnome-shell-extension-pop-shell && enable pop-shell@system76.com
+# sudo dnf -y install gnome-shell-extension-pop-shell && enable pop-shell@system76.com
 
 sudo chsh -s $(which zsh) && reboot
 
@@ -66,29 +66,90 @@ sudo chsh -s $(which zsh) && reboot
 #
 
 # Графическое управление аудио устройствами (выход, вход)
-sudo dnf install pavucontrol  
+sudo dnf install pavucontrol pactl
 
 # go to Pulseaudio (enable RPM) https://russianfedora.github.io/FAQ/hardware.html#index-66 
-sudo dnf swap pipewire-pulseaudio pulseaudio --allowerasing
-sudo systemctl reboot
+# sudo dnf swap pipewire-pulseaudio pulseaudio --allowerasing
+# sudo systemctl reboot
 # codecs for bluetooth
-sudo dnf swap pulseaudio-module-bluetooth pulseaudio-module-bluetooth-freeworld --allowerasing
-pulseaudio -k; pulseaudio -D # restart pulse
+# sudo dnf swap pulseaudio-module-bluetooth pulseaudio-module-bluetooth-freeworld --allowerasing
+# pulseaudio -k; pulseaudio -D # restart pulse
 # Переключение кодеков в pavucontrol (Иначе же - конфигурационные файлы pulse в ~ или / и alsa в /)
 
+
+# For Pipewire codecs (SBC-XQ is best)
+sudo vi /usr/share/pipewire/pipewire.conf
+# Add this:
+"""
+
+# Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
+#sound.enable = false;
+
+# rtkit is optional but recommended
+security.rtkit.enable = true;
+services.pipewire = {
+  enable = true;
+  alsa.enable = true;
+  alsa.support32Bit = true;
+  pulse.enable = true;
+  # If you want to use JACK applications, uncomment this
+  #jack.enable = true;
+
+  # use the example session manager (no others are packaged yet so this is enabled by default,
+  # no need to redefine it in your config for now)
+  #media-session.enable = true;
+  
+  media-session.config.bluez-monitor.rules = [
+    {
+      # Matches all cards
+      matches = [ { "device.name" = "~bluez_card.*"; } ];
+      actions = {
+        "update-props" = {
+          "bluez5.reconnect-profiles" = [ "hfp_hf" "hsp_hs" "a2dp_sink" ];
+          # mSBC is not expected to work on all headset + adapter combinations.
+          "bluez5.msbc-support" = true;
+          # SBC-XQ is not expected to work on all headset + adapter combinations.
+          "bluez5.sbc-xq-support" = true;
+        };
+      };
+    }
+    {
+      matches = [
+        # Matches all sources
+        { "node.name" = "~bluez_input.*"; }
+        # Matches all outputs
+        { "node.name" = "~bluez_output.*"; }
+      ];
+      actions = {
+        "node.pause-on-idle" = false;
+      };
+    }
+  ];
+  
+};
+
+"""
+
 # работа с bluetooth
+bluetooth on
 bluetoothctl scan on # скан устройств
 bluetoothctl pair [addres]
 bluetoothctl trust [addres] # доверять устройству, обязательно
 bluetoothctl connect [addres] # повторное подключение (возможно и первое)
 
-# Переключение каналов звука на выход (Работа с Pulseaudio через pactl)
+# Переключение каналов звука на выход
 pactl list sinks # список устройств (автоматически предложит установить пакет для работы pactl)
 pactl set-default-sink [номер] # дефолтное устройство выхода 
 
-# Wifi
-sudo dnf install nmtui
+# Change codecs in pavucontrol gui
+pavucontrol
 
+#
+# Wifi
+#
+sudo dnf install nmtui
 # connection
-# nmcli dev wifi rescan
-# nmtui
+nmcli dev wifi rescan
+nmtui # gui
+
+
