@@ -8,13 +8,13 @@ My configs:
 
 # Installing
 ## First steps
-Let's make the dnf fast
+Let's make the dnf fast like lynx
 ~~~
 echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
 echo 'max_parallel_downloads=10' | sudo tee -a /etc/dnf/dnf.conf
 echo 'deltarpm=true' | sudo tee -a /etc/dnf/dnf.conf
 ~~~
-Adequate touchpad, mouse and show battery status for GNOME DE
+Adequate touchpad, mouse and show battery status for GNOME DE for eyes!
 ~~~
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag false
@@ -30,10 +30,10 @@ Update system. Press Alt+Ctrl+F3 to enter safe terminal mode. Alt+Ctrl+F2 to get
 ~~~
 sudo dnf -y upgrade
 ~~~
-Installing battery power soft to control your battare. Useful. Save power, get status etc.
+Installing battery power soft to control your battery. Useful. Save power, get status, makes lemonade, etc.
 ~~~
 sudo dnf -y install tlp tlp-rdw
-sudo systemctl enable tlp
+sudo systemctl enable tlp # run this
 ~~~
 Installing other soft and fonts. Love it ^.^
 ~~~
@@ -43,7 +43,7 @@ sudo dnf -y install levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla
 sudo dnf -y install vlc neovim zsh
 flatpak -y install celluloid telegram spotify org.gnome.Extensions
 ~~~
-Nordic themes! Qogir icons! And, sorry, I lost my Vimix-dark cursor
+Nordic themes! Qogir icons! And, sorry, I lost my Vimix-dark cursor for you
 ~~~
 mkdir ~/.themes ~/.icons
 cd ~/.themes && git clone https://github.com/EliverLara/Nordic.git && gsettings set org.gnome.desktop.interface gtk-theme "Nordic" && gsettings set org.gnome.desktop.wm.preferences theme "Nordic" && gsettings set org.gnome.shell.extensions.user-theme name "Nordic"
@@ -51,7 +51,7 @@ cd ~/Downloads && git clone https://github.com/vinceliuice/Qogir-icon-theme.git
 cd ~/Downloads/Qogir-icon-theme && ./install.sh -d "/home/$(whoami)/.icons"
 gsettings set org.gnome.desktop.interface icon-theme Qogir-dark
 ~~~
-Time to Zsh setup
+Time to zzZsh setup
 ~~~
 No | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
@@ -60,12 +60,12 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"gentoo\"/g' ~/.zshrc
 sed -i 's/plugins\=(.*)/plugins\=(git\ zsh-autosuggestions\ zsh-completions\ zsh-syntax-highlighting)/g' ~/.zshrc
 ~~~
-Changing default bash shell to cool zsh shell and reboot system
+Changing default bash shell to cool zsh shell and reboot system of course 
 ~~~
 sudo chsh -s $(which zsh) && reboot
 ~~~
 ## Second steps... To Sway!
-Your audio controllers - gui and not
+Your audio controllers - gui and not gui
 ~~~
 sudo dnf install pavucontrol pactl
 ~~~
@@ -119,7 +119,7 @@ services.pipewire = {
   
 };
 ~~~
-Hot to use bluetooth
+How to use bluetooth. How?
 ~~~
 bluetooth on
 bluetoothctl scan
@@ -136,9 +136,11 @@ bluetoothctl connect [addres]
 Now are you connected? Okey. Change sound channel at headphones.
 ~~~
 pactl list sinks # devices list
+# Are you sure you are connected? :)
+# Ok next
 pactl set-default-sink [number] # set it default
 ~~~
-Ok. Run simple gui program pavucontrol and configurate your headphones to best codec (SBC-XQ maybe).
+Now run simple gui program pavucontrol and configurate your headphones to best codec (SBC-XQ maybe).
 ~~~
 pavucontrol
 ~~~
