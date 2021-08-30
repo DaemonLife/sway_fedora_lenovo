@@ -45,3 +45,33 @@ sudo dnf -y install levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla
 sudo dnf -y install vlc neovim zsh
 flatpak -y install celluloid telegram spotify org.gnome.Extensions
 ~~~
+Nordic themes! Qogir icons! And, sorry, I lost my Vimix-dark cursor
+~~~
+mkdir ~/.themes ~/.icons
+cd ~/.themes && git clone https://github.com/EliverLara/Nordic.git && gsettings set org.gnome.desktop.interface gtk-theme "Nordic" && gsettings set org.gnome.desktop.wm.preferences theme "Nordic" && gsettings set org.gnome.shell.extensions.user-theme name "Nordic"
+cd ~/Downloads && git clone https://github.com/vinceliuice/Qogir-icon-theme.git
+cd ~/Downloads/Qogir-icon-theme && ./install.sh -d "/home/$(whoami)/.icons"
+gsettings set org.gnome.desktop.interface icon-theme Qogir-dark
+~~~
+Time to Zsh setup
+~~~
+No | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"gentoo\"/g' ~/.zshrc
+sed -i 's/plugins\=(.*)/plugins\=(git\ zsh-autosuggestions\ zsh-completions\ zsh-syntax-highlighting)/g' ~/.zshrc
+~~~
+Changing default bash shell to cool zsh shell and reboot system
+~~~
+sudo chsh -s $(which zsh) && reboot
+~~~
+## Second steps... To Sway!
+Your audio controllers - gui and not
+~~~
+sudo dnf install pavucontrol pactl
+~~~
+Add a apt-x like codec support for bluetooth music. Open this file
+```
+sudo nvim /usr/share/pipewire/pipewire.conf
+```
