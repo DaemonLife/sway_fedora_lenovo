@@ -3,7 +3,7 @@
 Read the Fedora_post_install.sh file, there are some useful commands and steps to improve our system.
 
 My configs:
-.config/sway/
-.config/waybar/
-.vimrc
-.zshrc
+- .config/sway/
+- .config/waybar/
+- .vimrc
+- .zshrc
