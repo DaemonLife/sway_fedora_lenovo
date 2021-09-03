@@ -1,10 +1,6 @@
 # Config for Sway (and GNOME): Fedora 34, Lenovo ideapad 5 15are05
 
-My configs:
-- .config/sway/
-- .config/waybar/
-- .vimrc
-- .zshrc
+After install add all config from this repository.
 
 # Installing
 ## First steps
