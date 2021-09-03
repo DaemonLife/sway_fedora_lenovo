@@ -588,3 +588,4 @@ call s:SetHighlight('TSTagAttribute', s:purple, '', '')
 call s:SetHighlight('TSType', s:yellow, '', '')
 call s:SetHighlight('TSVariable', s:fg, '', '')
 call s:SetHighlight('TSVariableBuiltin', s:fg, '', '')
+
