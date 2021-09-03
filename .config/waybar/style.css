@@ -2,22 +2,22 @@
     border: none;
     margin: 0px 0px 0px 0px;
     border-radius: 0;
-    font-family: "Ubuntu Nerd Font";
+    /* font-family: "Ubuntu Nerd Font"; */
+    font-family: Source-code-pro;
+    font-weight: bold;
     font-size: 13px;
     min-height: 0;
     /* background-color: rgba(44,62,80,0.8); */
 }
 
 window#waybar {
-    background-color: red;
-    background: rgba(44,62,80,0.8);
-    color: white;
+    /* background: rgba(44,62,80,0.8); */
+    /* background: #3B4252 */
+    /* background: #2E3440; */
+    background: rgba(59, 66, 82, 0.8);
 }
 
 #window {
-    /* background-color: rgb(44,61,80); */
-    /* padding: 0 10 0 10; */
-    font-family: "Ubuntu";
 }
 
 
@@ -26,27 +26,31 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    color: white;
-    background-color: #E6577B;
+    background-color: #bf616a;
     font-weight: bold;
 }
 
-#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio {
-    margin-right: 8px;
-    margin-left: 10px;
+#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #lang {
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
+#idle_inhibitor{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+#tray{
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
 #clock{
-    margin-left: 7px;
-    margin-right: 11px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 #temperature.critical {
-    color: red;
-}
-
-#battery icon {
     color: red;
 }
 
@@ -71,5 +75,10 @@ window#waybar {
 }
 
 #network.disconnected {
-    background: #f53c3c;
+    background: #bf616a;
+}
+
+#lang {
+    color: #E6577B;
+    margin-right: 15px;
 }

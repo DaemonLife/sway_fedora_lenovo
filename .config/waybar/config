@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "temperature", "cpu", "memory", "idle_inhibitor", "battery", "clock", "tray", "custom/lang", "custom/checkupdates"],
+    "modules-right": ["custom/lang", "tray", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock"],
     "sway/workspaces": {
         "disable-scroll": true,
         "disable-click": true,
@@ -13,7 +13,7 @@
         "spacing": 10,
     },
     "clock": {
-        "format": "{:%R %d %b %Y}"
+        "format": "{:%R | %d %b %Y}"
     },
     "cpu": {
         "format": " {usage}%"
@@ -61,6 +61,6 @@
     "custom/lang": {
       "exec": "swaymsg -t get_inputs | grep layout_name | grep -v En | awk 'END{if(NR == 0){print \"EN\"}else{print toupper(substr($2,2,2))}}'",
       "interval": 1,
-      "format": "{} "
+      "format": " {}"
     },
 }
