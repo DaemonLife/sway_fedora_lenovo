@@ -1,9 +1,0 @@
-[url "ssh://git@github.com/"]
-	insteadOf = https://github.com/
-[url "ssh://git@bitbucket.org/"]
-	insteadOf = https://bitbucket.org/
-[url "ssh://git@gitlab.com/"]
-	insteadOf = https://gitlab.com/
-[user]
-	email = minkin.andrew@gmail.com
-	name = Gen1us2k
