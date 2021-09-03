@@ -73,3 +73,4 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 call plug#end()
+
