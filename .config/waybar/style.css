@@ -20,7 +20,6 @@ window#waybar {
 #window {
 }
 
-
 #workspaces button {
     padding: 0 5px;
 }
@@ -55,7 +54,7 @@ window#waybar {
 }
 
 #battery.charging {
-    color: #D3F99F;
+    color: #a3be8c;
 }
 
 @keyframes blink {
