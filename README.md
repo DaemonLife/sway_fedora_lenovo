@@ -60,14 +60,14 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"gentoo\"/g' ~/.zshrc
 sed -i 's/plugins\=(.*)/plugins\=(git\ zsh-autosuggestions\ zsh-completions\ zsh-syntax-highlighting)/g' ~/.zshrc
 ~~~
-Changing default bash shell to cool zsh shell and reboot system of course 
+Changing default bash shell to cool zsh shell, install sway and reboot system of course 
 ~~~
-sudo chsh -s $(which zsh) && reboot
+sudo chsh -s $(which zsh) && sudo dnf install sway && reboot
 ~~~
 ## Second steps... To Sway!
-Your audio controllers - gui and not gui
+Your audio controllers - gui and not gui. And rofi program menu
 ~~~
-sudo dnf install pavucontrol pactl
+sudo dnf install pavucontrol pactl rofi
 ~~~
 Add a apt-x like codec support for bluetooth music. Open this file
 ```
