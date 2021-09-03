@@ -1,0 +1,3 @@
+configuration {
+	theme: "~/.local/share/rofi/themes/nord.rasi";
+}
