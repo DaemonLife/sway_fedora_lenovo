@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/media", "tray", "sway/language", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "backlight", "battery", "custom/date", "clock"],
+    "modules-right": ["tray", "sway/language", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "backlight", "battery", "custom/date", "clock"],
     // Modules configuration
 	"sway/workspaces": {
 		"disable-scroll": true,
