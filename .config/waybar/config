@@ -36,6 +36,7 @@
     },
       "tray": {
         "spacing": 10,
+	"icon-size": 13,
     },
     "idle_inhibitor": {
         "format": "{icon}",
