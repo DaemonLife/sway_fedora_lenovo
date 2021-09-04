@@ -7,13 +7,9 @@
     font-weight: bold;
     font-size: 13px;
     min-height: 0;
-    /* background-color: rgba(44,62,80,0.8); */
 }
 
 window#waybar {
-    /* background: rgba(44,62,80,0.8); */
-    /* background: #3B4252 */
-    /* background: #2E3440; */
     background: rgba(59, 66, 82, 0.8);
 }
 
@@ -29,24 +25,22 @@ window#waybar {
     font-weight: bold;
 }
 
-#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #lang {
-    margin-right: 5px;
-    margin-left: 5px;
+#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #language {
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+#battery{
+    margin-right: 0px;
+}
+
+#language{
+    margin-right: 4px;
+    margin-left: 6px;
 }
 
 #idle_inhibitor{
-    margin-left: 8px;
-    margin-right: 8px;
-}
-
-#tray{
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-#clock{
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 6px;
 }
 
 #temperature.critical {
@@ -75,9 +69,4 @@ window#waybar {
 
 #network.disconnected {
     background: #bf616a;
-}
-
-#lang {
-    color: #E6577B;
-    margin-right: 15px;
 }
