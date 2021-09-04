@@ -1,55 +1,41 @@
 {
     "layer": "top",
-    "position": "top",
+    "position": "top", 
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["custom/lang", "tray", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock"],
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "disable-click": true,
+    "modules-right": ["custom/media", "tray", "sway/language", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "backlight", "battery", "custom/date", "clock"],
+    // Modules configuration
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	},
+         	"format-icons": {
+             		"1": "1",
+             		"2": "2",
+             		"3": "3",
+             		"4": "4",
+             		"5": "5",
+             		"6": "6",
+             		"7": "7",
+             		"8": "8",
+             		"9": "9",
+             		"10": "10",
+         }
+     },
+     "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": [""],
+        "on-click": "dex /usr/share/applications/clightc.desktop"
     },
-    "tray": {
+      "tray": {
         "spacing": 10,
-    },
-    "clock": {
-        "format": "{:%R | %d %b %Y}"
-    },
-    "cpu": {
-        "format": " {usage}%"
-    },
-    "memory": {
-        "format": " {}%"
-    },
-    "temperature": {
-        "critical-threshold": 75,
-        "format": " {temperatureC}°C"
-    },
-    "battery": {
-        "bat": "BAT0",
-        "interval": 60,
-        "full-at": 95,
-        "states": {
-            "good": 95,
-            "warning": 40,
-            "critical": 20
-        },
-        "format": "{icon} {capacity}%",
-        "format-icons": ["", "", "", "", ""]
-    },
-    "network": {
-        "format-wifi": " {essid}",
-        "format-disconnected": "  Disconnected ",
-        "on-click": "nmcli dev wifi rescan && gnome-terminal -- zsh -c nmtui"
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "headphones": "",
-            "default": ["", ""]
-        },
-        "on-click": "pavucontrol"
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -58,9 +44,66 @@
             "deactivated": ""
         }
     },
-    "custom/lang": {
-      "exec": "swaymsg -t get_inputs | grep layout_name | grep -v En | awk 'END{if(NR == 0){print \"EN\"}else{print toupper(substr($2,2,2))}}'",
-      "interval": 1,
-      "format": " {}"
+    "bluetooth": {
+        "format": "<b>{icon} on</b>",
+        "format-alt": "{icon} off",
+        "interval": 30,
+        "format-icons": {
+            "enabled": "",
+            "disabled": ""
+        },
+        "tooltip-format": "{}"
     },
+        "sway/language": {
+        "format": "{}",
+        "max-length": 50
+    },
+	"custom/date": {
+    		"format": " {}",
+		"interval": 3600,
+		"exec": "/home/squidd/.bin/waybar-date.sh"
+	},
+	"clock": {
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        	"format": "{:%d-%m-%Y | %R}"
+	},
+	"battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+	"network": {
+        	"format-wifi": " {essid}",
+        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": " Disconnected",
+            "on-click": "nmcli dev wifi rescan && gnome-terminal -- zsh -c nmtui"
+	},
+    "pulseaudio": {
+		"format": "{icon}  {volume}%",
+        	"format-muted": " Muted",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    }
 }
+
