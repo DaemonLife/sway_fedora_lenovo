@@ -60,8 +60,10 @@ cd ~/Downloads && git clone https://github.com/rafaelmardojai/firefox-gnome-them
 # sudo dnf -y install gnome-shell-extension-pop-shell && enable pop-shell@system76.com
 
 # Default text editor
-export VISUAL=nvim;
-export EDITOR=nvim;
+sudo nvim /etc/profile.d/nano.sh
+# add:
+# export VISUAL="nvim"
+# export EDITOR="nvim"
 
 sudo chsh -s $(which zsh) && reboot
 
