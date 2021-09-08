@@ -1,8 +1,22 @@
 # Default config for sway
 #
-# Read `man 5 sway` for a complete reference.
+# run apps
+#
 
-font pango: SourceCodePro Medium 12
+exec udiskie -a -n -t
+
+# Read `man 5 sway` for a complete reference.
+font pango:FantasqueSansMono Nerd Font 12
+# default_border pixel 1
+# titlebar_border_thickness 1
+gaps outer 5
+gaps inner 5
+client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
+client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
+client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
+client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
+
+# xwayland disable
 
 ### Variables
 #
@@ -14,22 +28,25 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term gnome-terminal
-# set $menu wofi --show run
-set $menu --no-startup-id rofi -show drun -run-shell-command '{terminal} -e zsh -ic "{cmd} && read"'
+set $term kitty
+set $menu wofi --hidescroll | xargs swaymsg exec --
 
 ### Output configuration
 # swaymsg -t get_outputs
-
-output eDP-1 pos 0 0 res 1920x1080
+# output eDP-1 pos 0 0 res 1920x1080
+#
+output eDP-1 pos 1920 0 res 1920x1080
+output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 # output HDMI-A-1 pos 1920 0 res 1920x1080
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/default.png fill
+# output * bg /usr/share/backgrounds/default.png fill
+output * bg /home/user/Pictures/Wallpapers/default.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
     xkb_options grp:win_space_toggle
+    # xkb_options grp:ctrl_shift_toggle
 	}	
 input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
     dwt enabled	# disable-while-typing
@@ -43,14 +60,35 @@ input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
 
 seat seat0 xcursor_theme Vimix-dark 25
 
-gaps inner 10
+# apps
+
+# gaps inner 10
 default_border none
 
-set $opacity 0.5
-set $alacrity opacity 0.5
+# xwayland version
+for_window [class="Celluloid"] inhibit_idle fullscreen
+# wayland vesion
+for_window [app_id="Celluloid"] inhibit_idle fullscreen
 
-bindsym Print exec grim ~/Pictures/screen-"$(date +%s)".png
-bindsym $mod+Print exec grim -g "$(slurp)" ~/Pictures/screen-"$(date +%s)".png
+#
+# Screen capture
+#
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+mode "$screenshot" {
+    bindsym 1 exec 'grim -g "$(slurp)" ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 2 exec 'grim ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
+    bindsym 4 exec 'grim - | wl-copy', mode "default"
+    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+bindsym $mod+Print mode "$screenshot"
+
+# Brightness control
 
 bindsym XF86MonBrightnessUp exec sudo light -A 10
 bindsym XF86MonBrightnessDown exec sudo light -U 10
@@ -215,4 +253,3 @@ bar {
 }
 
 include /etc/sway/config.d/*
-
