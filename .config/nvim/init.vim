@@ -10,9 +10,7 @@ set clipboard=unnamedplus
 set scrolloff=4
 
 "set spell spelllang=ru_ru,en_us
-
 map <F8> :setlocal spell! spelllang=ru,en_us<CR>
-
 "Можно добавлять слова в словарь, используя zg или удалять, используя zug
 set number
 set foldcolumn=0
@@ -59,6 +57,10 @@ let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
 
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+
 "vim-plug. :PlugInstall
 call plug#begin()
 
@@ -73,4 +75,3 @@ Plug 'mzlogin/vim-markdown-toc'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
 call plug#end()
-
