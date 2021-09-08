@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "sway/language", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "backlight", "battery", "custom/date", "clock"],
+    "modules-right": ["tray", "sway/language", "idle_inhibitor", "pulseaudio", "bluetooth", "network", "battery", "custom/weather", "custom/date", "clock"],
     // Modules configuration
 	"sway/workspaces": {
 		"disable-scroll": true,
@@ -28,15 +28,9 @@
              		"10": "10",
          }
      },
-     "backlight": {
-        // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
-        "format-icons": [""],
-        "on-click": "dex /usr/share/applications/clightc.desktop"
-    },
       "tray": {
         "spacing": 10,
-	"icon-size": 13,
+        "icon-size": 13,
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -46,14 +40,15 @@
         }
     },
     "bluetooth": {
-        "format": "<b>{icon} on</b>",
-        "format-alt": "{icon} off",
+        "format": "<b>{icon}</b>",
+        "format-alt": "{icon}",
         "interval": 30,
         "format-icons": {
-            "enabled": "",
+            "enabled": " on",
             "disabled": ""
         },
-        "tooltip-format": "{}"
+        "tooltip-format": "{}",
+        "on-click": "bluetooth toggle"
     },
         "sway/language": {
         "format": "{}",
@@ -75,7 +70,7 @@
             "critical": 15
         },
         "format": "{icon} {capacity}%",
-        "format-charging": "{capacity}% ",
+        "format-charging": " {capacity}%",
         "format-plugged": "{capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
@@ -105,6 +100,10 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol"
-    }
+    },
+    "custom/weather": {
+        "exec": "curl 'https://wttr.in/?format=1'",
+        "interval": 3600
+    },
 }
 
