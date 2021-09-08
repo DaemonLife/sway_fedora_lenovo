@@ -4,7 +4,6 @@
 #
 
 exec udiskie -a -n -t
-
 # Read `man 5 sway` for a complete reference.
 font pango:FantasqueSansMono Nerd Font 12
 # default_border pixel 1
@@ -31,6 +30,8 @@ set $right l
 set $term kitty
 set $menu wofi --hidescroll | xargs swaymsg exec --
 
+# run ranger in kitty
+bindsym $mod+n exec kitty -- zsh -c ranger
 ### Output configuration
 # swaymsg -t get_outputs
 # output eDP-1 pos 0 0 res 1920x1080
