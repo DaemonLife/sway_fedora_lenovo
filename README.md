@@ -1,9 +1,8 @@
-# Config for Sway (and GNOME): Fedora 34, Lenovo ideapad 5 15are05
+# Config for GNOME and SWAY: Fedora 34, Lenovo Ideapad 5 15are05.
 
-After install add all config from this repository.
+After install add all config from this repository to your folders.
 
-# Installing
-## First steps
+# GNOME Post installing
 Let's make the dnf fast like lynx
 ~~~
 echo 'fastestmirror=1' | sudo tee -a /etc/dnf/dnf.conf
@@ -60,10 +59,8 @@ Changing default bash shell to cool zsh shell.
 ~~~
 sudo chsh -s $(which zsh)
 ~~~
-
-## Second steps... To Sway!
-Installing Sway, wofi (demenu analog, app search), swaylock (lockscreen), kitty (IMHO, best terminal)
-Reboot after all.
+# To Sway!
+Installing Sway, wofi (demenu analog, app search), swaylock (lockscreen), kitty (IMHO, best terminal). Reboot after all.
 ~~~
 sudo dnf install sway swaylock wofi kitty
 reboot
@@ -158,7 +155,7 @@ sudo dnf install udiskie
 # There is added "exec udiskie -a -n -t" line in sway config for autostart mounting at startapp Sway.   
 ~~~
 
-# Firefox Nord theme
+## Firefox Nord theme
 ![screen-1630671932](https://user-images.githubusercontent.com/52444457/132004845-03f1a36d-9d30-4f30-999f-b432be4774d7.png)
 
 Install Firefox Nord Polar theme: https://addons.mozilla.org/en-GB/firefox/addon/nord-polar-night-theme/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
