@@ -2,15 +2,14 @@
     border: none;
     margin: 0px 0px 0px 0px;
     border-radius: 0;
-    /* font-family: "Ubuntu Nerd Font"; */
-    font-family: Source-code-pro;
-    font-weight: bold;
+    font-family: "Ubuntu Nerd Font";
+        font-weight: bold;
     font-size: 13px;
     min-height: 0;
 }
 
 window#waybar {
-    background: rgba(59, 66, 82, 0.8);
+    background: #2e3440;
 }
 
 #window {
@@ -28,10 +27,7 @@ window#waybar {
 #tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #language {
     margin-right: 8px;
     margin-left: 8px;
-}
-
-#battery{
-    margin-right: 0px;
+    font-size: 13px;
 }
 
 #language{
@@ -69,4 +65,9 @@ window#waybar {
 
 #network.disconnected {
     background: #bf616a;
+}
+
+#network {
+    margin-left: 10px;
+    margin-right: 0px;
 }
