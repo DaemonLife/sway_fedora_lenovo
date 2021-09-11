@@ -21,6 +21,7 @@ client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 #
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
+set $menu wofi --show=drun 
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -28,10 +29,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term kitty
-set $menu wofi --hidescroll | xargs swaymsg exec --
 
-# run ranger in kitty
-bindsym $mod+n exec kitty -- zsh -c ranger
 ### Output configuration
 # swaymsg -t get_outputs
 # output eDP-1 pos 0 0 res 1920x1080
@@ -42,7 +40,7 @@ output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/default.png fill
-output * bg /home/user/Pictures/Wallpapers/default.jpg fill
+output * bg /home/user/Pictures/Wallpapers/coffee.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
@@ -59,7 +57,7 @@ input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
     accel_profile adaptive # flat/adaptive
    }
 
-seat seat0 xcursor_theme Vimix-dark 25
+seat seat0 xcursor_theme Qogir-dark 25
 
 # apps
 
@@ -91,10 +89,10 @@ bindsym $mod+Print mode "$screenshot"
 
 # Brightness control
 
-bindsym XF86MonBrightnessUp exec sudo light -A 10
-bindsym XF86MonBrightnessDown exec sudo light -U 10
-bindsym $mod+XF86MonBrightnessUp exec sudo light -A 2
-bindsym $mod+XF86MonBrightnessDown exec sudo light -U 2
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym $mod+XF86MonBrightnessUp exec light -A 2
+bindsym $mod+XF86MonBrightnessDown exec light -U 2
 
 # Audio controls
 # bindsym $mod+Ctrl+p exec pavucontrol
