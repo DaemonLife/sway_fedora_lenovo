@@ -63,20 +63,26 @@ chsh -s $(which zsh)
 sudo chsh -s $(which zsh)
 ~~~
 # To Sway!
-Installing Sway, wofi (demenu analog, app search), swaylock (lockscreen), kitty (IMHO, best terminal). Reboot after all.
+Installing Sway
+
+- wofi: demenu analog, app search.
+- kitty: IMHO, best terminal.
+- swayidle, swaylock, swaymsg: it's your locksreen. 
+- pulseaudio-utils: for pactl command to change volume, etc.
+- pavucontrol: simple audio control with gui.
+- nmtui: simple wifi control with gui.
+- udiskie: mounting devices.
+
+Reboot after all.
 ~~~
-sudo dnf install sway swaylock wofi kitty
+sudo dnf install sway wofi kitty swayidle swaylock swaymsg pulseaudio-utils pavucontrol nmtui udiskie 
 reboot
-~~~
-Your audio controllers - gui and not gui. And wofi program menu
-~~~
-sudo dnf install pavucontrol pactl
 ~~~
 Add a apt-x like codec support for bluetooth music. Open this file
 ```
 sudo nvim /usr/share/pipewire/pipewire.conf
 ```
-And add this to end of the file:
+And add this TO END OF THIS FILE:
 ~~~
 # Remove sound.enable or turn it off if you had it set previously, it seems to cause conflicts with pipewire
 #sound.enable = false;
@@ -149,12 +155,10 @@ pavucontrol
 ~~~
 How to WiFi control? The easy way:
 ~~~
-sudo dnf install nmtui
 nmcli dev wifi rescan && nmtui # search for mentality and run a simple gui
 ~~~
 For USB and SD automount:
 ~~~
-sudo dnf install udiskie
 # There is added "exec udiskie -a -n -t" line in sway config for autostart mounting at startapp Sway.   
 ~~~
 
