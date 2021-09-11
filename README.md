@@ -51,16 +51,18 @@ gsettings set org.gnome.desktop.interface cursor-theme Qogir-dark
 ~~~
 Time to zzZsh setup
 ~~~
+sudo chsh -s $(which zsh)
+zsh
+~~~
+~~~
 No | sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 sed -i 's/ZSH_THEME=\".*\"/ZSH_THEME=\"gentoo\"/g' ~/.zshrc
 sed -i 's/plugins\=(.*)/plugins\=(git\ zsh-autosuggestions\ zsh-completions\ zsh-syntax-highlighting)/g' ~/.zshrc
-~~~
-Changing default bash shell to cool zsh shell.
-~~~
-sudo chsh -s $(which zsh)
+echo 'alias vi="nvim"' >> ~/.zshrc
+echo 'alias rg="ranger"' >> ~/.zshrc
 ~~~
 # To Sway!
 Installing Sway, wofi (demenu analog, app search), swaylock (lockscreen), kitty (IMHO, best terminal). Reboot after all.
