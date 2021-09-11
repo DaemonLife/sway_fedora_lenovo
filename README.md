@@ -167,8 +167,8 @@ For USB and SD automount:
 ## Now copy all configs. 
 
 If you copied nvim configs follow this steps:
-Setup NeoVim. Install Vim-Plug plugin.
 ~~~
+# Installing Vim-Plug plugin.
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ~~~
