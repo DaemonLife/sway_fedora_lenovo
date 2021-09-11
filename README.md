@@ -66,6 +66,7 @@ sudo chsh -s $(which zsh)
 Installing Sway
 
 - wofi: demenu analog, app search.
+- waybar: better bar.
 - kitty: IMHO, best terminal.
 - swayidle, swaylock: it's your locksreen. 
 - pulseaudio-utils: for pactl command to change volume, etc.
@@ -73,7 +74,7 @@ Installing Sway
 - NetworkManager-tui: for command nmtui, simple wifi control with gui.
 - udiskie: mounting devices.
 ~~~
-sudo dnf install sway wofi kitty swayidle swaylock pulseaudio-utils pavucontrol NetworkManager-tui udiskie
+sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils pavucontrol NetworkManager-tui udiskie
 ~~~
 Reboot after all and remember to login to sway in GDM.
 ~~~
