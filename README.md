@@ -1,6 +1,6 @@
 # GNOME and SWAY setup for Fedora 34
 
-After install add all config from this repository to your folders. Btw I use Lenovo Ideapad 5 15are05.
+After install add all configs from this repository to your folders. Btw I use Lenovo Ideapad 5 15are05.
 
 # GNOME Post installing
 Let's make the dnf fast like lynx
