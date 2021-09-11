@@ -1,12 +1,12 @@
 "Настройка отступов
 set expandtab
-set smarttab
-set tabstop=4
+" set smarttab
+" set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 
 set clipboard=unnamedplus
-"set cursorline
+set cursorline
 set scrolloff=4
 
 "set spell spelllang=ru_ru,en_us
@@ -17,8 +17,8 @@ set foldcolumn=0
 syntax on
 set noerrorbells
 set novisualbell
-set mouse=a
 set history=200
+set mouse=i
 set wrap
 set linebreak
 set nocompatible
@@ -35,7 +35,7 @@ set ffs=unix,dos,mac
 let g:indent_guides_enable_on_vim_startup = 1
 
 "Копирование текста в буфер обмена.Ctrl+@
-xnoremap <silent> <C-@> :w !wl-copy<CR><CR>
+" xnoremap <silent> <C-@> :w !wl-copy<CR><CR>
 
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
