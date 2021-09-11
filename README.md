@@ -67,15 +67,16 @@ Installing Sway
 
 - wofi: demenu analog, app search.
 - kitty: IMHO, best terminal.
-- swayidle, swaylock, swaymsg: it's your locksreen. 
+- swayidle, swaylock: it's your locksreen. 
 - pulseaudio-utils: for pactl command to change volume, etc.
 - pavucontrol: simple audio control with gui.
-- nmtui: simple wifi control with gui.
+- NetworkManager-tui: for command nmtui, simple wifi control with gui.
 - udiskie: mounting devices.
-
-Reboot after all.
 ~~~
-sudo dnf install sway wofi kitty swayidle swaylock swaymsg pulseaudio-utils pavucontrol nmtui udiskie 
+sudo dnf install sway wofi kitty swayidle swaylock pulseaudio-utils pavucontrol NetworkManager-tui udiskie
+~~~
+Reboot after all and remember to login to sway in GDM.
+~~~
 reboot
 ~~~
 Add a apt-x like codec support for bluetooth music. Open this file
