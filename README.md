@@ -61,9 +61,9 @@ Changing default bash shell to cool zsh shell, install sway and reboot system of
 sudo chsh -s $(which zsh) && sudo dnf install sway && reboot
 ~~~
 ## Second steps... To Sway!
-Your audio controllers - gui and not gui. And rofi program menu
+Your audio controllers - gui and not gui. And wofi program menu
 ~~~
-sudo dnf install pavucontrol pactl rofi
+sudo dnf install pavucontrol pactl wofi
 ~~~
 Add a apt-x like codec support for bluetooth music. Open this file
 ```
@@ -144,6 +144,11 @@ How to WiFi control? The easy way:
 ~~~
 sudo dnf install nmtui
 nmcli dev wifi rescan && nmtui # search for mentality and run a simple gui
+~~~
+For USB and SD automount:
+~~~
+sudo dnf install udiskie
+# There is added "exec udiskie -a -n -t" line in sway config for autostart mounting at startapp Sway.   
 ~~~
 
 # Firefox Nord theme
