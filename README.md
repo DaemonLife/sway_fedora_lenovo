@@ -1,4 +1,5 @@
-# Config for GNOME and SWAY: Fedora 34, Lenovo Ideapad 5 15are05.
+# Config for GNOME and SWAY.
+## Fedora 34, Lenovo Ideapad 5 15are05.
 
 After install add all config from this repository to your folders.
 
