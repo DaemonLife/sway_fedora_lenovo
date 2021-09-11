@@ -27,8 +27,10 @@ sudo dnf -y upgrade
 ~~~
 Installing battery power soft to control your battery. Useful. Save power, get status, makes lemonade, etc.
 ~~~
-sudo dnf -y install tlp tlp-rdw
+sudo dnf -y install tlp tlp-rdw smartmontools
 sudo systemctl enable tlp # run this
+# run sudo tlp-stat and check possible recommendations for installing
+sudo tlp-stat
 ~~~
 Installing other soft and fonts. Love it ^.^
 ~~~
