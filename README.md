@@ -69,13 +69,13 @@ Installing Sway
 - waybar: better bar.
 - kitty: IMHO, best terminal.
 - swayidle, swaylock: it's your locksreen. 
-- pulseaudio-utils: for pactl command to change volume, etc.
+- pulseaudio-utils, playerctl: for pactl and playctl commands to change volume, etc.
 - pavucontrol: simple audio control with gui.
 - NetworkManager-tui: for command nmtui, simple wifi control with gui.
 - udiskie: mounting devices.
 - wl-clipboard: proggram for saving printscreen to clipboard.
 ~~~
-sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils pavucontrol NetworkManager-tui udiskie wl-clipboard
+sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard
 ~~~
 Reboot after all and remember to login to sway in GDM.
 ~~~
