@@ -1,10 +1,9 @@
 * {
     border: none;
-    margin: 0px 0px 0px 0px;
     border-radius: 0;
     font-family: "Ubuntu Nerd Font";
-        font-weight: bold;
-    font-size: 13px;
+    font-weight: bold;
+    font-size: 12px;
     min-height: 0;
 }
 
@@ -24,19 +23,28 @@ window#waybar {
     font-weight: bold;
 }
 
-#tray, #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #language {
-    margin-right: 8px;
-    margin-left: 8px;
-    font-size: 13px;
+#tray, #wetaher, #bluetooth #idle_inhibitor, #temperature, #clock, #battery, #cpu, #memory, #network, #pulseaudio, #language {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+#battery{
+    margin: 0 6 0 0;
+}
+#idle_inhibitor{
+    margin: 0 0 0 0;
+}
+#tray{
+    margin: 0 0 0 0;
+}
+
+#bluetooh{
+    margin-left: -2px;
 }
 
 #language{
-    margin-right: 4px;
-    margin-left: 6px;
 }
 
 #idle_inhibitor{
-    margin-right: 6px;
 }
 
 #temperature.critical {
@@ -65,9 +73,4 @@ window#waybar {
 
 #network.disconnected {
     background: #bf616a;
-}
-
-#network {
-    margin-left: 10px;
-    margin-right: 0px;
 }
