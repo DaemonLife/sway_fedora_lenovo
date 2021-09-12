@@ -40,12 +40,13 @@ sudo dnf -y install levien-inconsolata-fonts adobe-source-code-pro-fonts mozilla
 sudo dnf -y install vlc neovim zsh
 flatpak -y install celluloid telegram spotify org.gnome.Extensions
 ~~~
-Nordic themes! Qogir icons and cursor!
+Arc theme, qogir icons and cursor.
 ~~~
 mkdir ~/.themes ~/.icons
-cd ~/.themes && git clone https://github.com/EliverLara/Nordic.git && gsettings set org.gnome.desktop.interface gtk-theme "Nordic" && gsettings set org.gnome.desktop.wm.preferences theme "Nordic" && gsettings set org.gnome.shell.extensions.user-theme name "Nordic"
+sudo dnf install arc-theme
 cd ~/Downloads && git clone https://github.com/vinceliuice/Qogir-icon-theme.git
 cd ~/Downloads/Qogir-icon-theme && ./install.sh -d "/home/$(whoami)/.icons"
+gsettings set org.gnome.desktop.interface gtk-theme Arc-Dark-solid
 gsettings set org.gnome.desktop.interface icon-theme Qogir-dark
 gsettings set org.gnome.desktop.interface cursor-theme Qogir-dark
 ~~~
