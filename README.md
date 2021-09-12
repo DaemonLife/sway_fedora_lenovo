@@ -73,9 +73,9 @@ Installing Sway
 - pavucontrol: simple audio control with gui.
 - NetworkManager-tui: for command nmtui, simple wifi control with gui.
 - udiskie: mounting devices.
-- wl-clipboard: proggram for saving printscreen to clipboard.
+- wl-clipboard, clipman: proggrams for clipboard.
 ~~~
-sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard
+sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard clipman
 ~~~
 Reboot after all and remember to login to sway in GDM.
 ~~~
