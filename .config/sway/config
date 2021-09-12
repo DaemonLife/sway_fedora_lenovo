@@ -2,7 +2,7 @@
 #
 # run apps
 #
-
+exec wl-paste -t text --watch clipman store
 exec udiskie -a -n -t
 # Read `man 5 sway` for a complete reference.
 font pango:FantasqueSansMono Nerd Font 12
@@ -14,7 +14,6 @@ client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
 client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
-
 # xwayland disable
 
 ### Variables
@@ -37,6 +36,7 @@ set $term kitty
 output eDP-1 pos 1920 0 res 1920x1080
 output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
 # output HDMI-A-1 pos 1920 0 res 1920x1080
+output eDP-1 scale 1.5
 
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg /usr/share/backgrounds/default.png fill
@@ -101,10 +101,10 @@ bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
 bindsym XF86AudioMicMute exec amixer sset Capture toggle
 
-bindsym XF86AudioPrev exec #
-bindsym XF86AudioNext exec # 
-bindsym XF86AudioPlay exec # 
-bindsym XF86AudioStop exec #
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
 
 # commands for change output device
 # pactl list sinks
@@ -115,7 +115,7 @@ bindsym XF86Calculator exec gnome-calculator
 
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
-    timeout 400 'swaymsg "output * dpms off"' \
+    timeout 305 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
    
