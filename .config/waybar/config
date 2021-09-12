@@ -35,8 +35,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "  |",
-            "deactivated": "  |"
+            "activated": "   |",
+            "deactivated": "   |"
         }
     },
     "bluetooth": {
@@ -44,8 +44,8 @@
         "format-alt": "{icon}",
         "interval": 30,
         "format-icons": {
-            "enabled": "  |",
-            "disabled": "  |"
+            "enabled": "   |",
+            "disabled": "   |"
         },
         "tooltip-format": "{}",
         "on-click": "bluetooth toggle"
