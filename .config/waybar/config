@@ -30,13 +30,13 @@
      },
       "tray": {
         "spacing": 10,
-        "icon-size": 13,
+        "icon-size": 12,
     },
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "  |",
+            "deactivated": "  |"
         }
     },
     "bluetooth": {
@@ -44,14 +44,14 @@
         "format-alt": "{icon}",
         "interval": 30,
         "format-icons": {
-            "enabled": " on",
-            "disabled": ""
+            "enabled": "  |",
+            "disabled": "  |"
         },
         "tooltip-format": "{}",
         "on-click": "bluetooth toggle"
     },
         "sway/language": {
-        "format": "{}",
+        "format": "|  {}  |",
         "max-length": 50
     },
 	"custom/date": {
@@ -61,7 +61,7 @@
 	},
 	"clock": {
         	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        	"format": "{:%d-%m-%Y | %R}"
+        	"format": "|  {:%d-%m-%Y  |  %R}"
 	},
 	"battery": {
         "states": {
@@ -69,9 +69,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": "{capacity}% ",
+        "format": "{icon} {capacity}%  |",
+        "format-charging": " {capacity}%  |",
+        "format-plugged": "{capacity}%   |",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -81,15 +81,15 @@
         "bat": "BAT2"
     },
 	"network": {
-        	"format-wifi": " {essid}",
-        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        	"format-linked": "{ifname} (No IP) ",
-        	"format-disconnected": " Disconnected",
+        	"format-wifi": " {essid}  |",
+        	"format-ethernet": "{ifname}: {ipaddr}/{cidr}  |",
+        	"format-linked": "{ifname} (No IP)  |",
+        	"format-disconnected": " Disconnected |",
             "on-click": "nmcli dev wifi rescan && gnome-terminal -- zsh -c nmtui"
 	},
     "pulseaudio": {
-		"format": "{icon}  {volume}%",
-        	"format-muted": " Muted",
+		"format": "{icon}  {volume}%  |",
+        	"format-muted": " Muted  |",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
