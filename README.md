@@ -74,8 +74,9 @@ Installing Sway
 - NetworkManager-tui: for command nmtui, simple wifi control with gui.
 - udiskie: mounting devices.
 - wl-clipboard, clipman: proggrams for clipboard.
+- light: control monitor brightness.
 ~~~
-sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard clipman
+sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard clipman light
 ~~~
 Reboot after all and remember to login to sway in GDM.
 ~~~
