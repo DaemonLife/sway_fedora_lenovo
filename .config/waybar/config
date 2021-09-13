@@ -1,83 +1,106 @@
-* {
-    border: none;
-    border-radius: 0;
-    /* font-family: "Ubuntu Nerd Font"; */
-    font-family: "Inconsolata Medium";
-    font-weight: bold;
-    font-size: 14px;
-    min-height: 0;
-    color: #E5E5E5;
-}
-
-window#waybar {
-    background: #383c4a;
-}
-#window{
-    /* font-family: "Cantarell"; */
-}
-
-#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
-    margin-right: 3px;
-    margin-left: 3px;
-}
-#parag{
-    margin: 0 6 0 6;
-}
-
-#language{
-    color: #E5E5E5;
-}
-
-#workspaces button {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-}
-#workspaces button.focused {
-    background-color: #bf616a;
-    font-weight: bold;
-}
-
-#battery{
-    color: #5E6D5D;
-}
-#battery.charging {
-    color: #a3be8c;
-}
-
-#battery.full {
-    color: #a3be8c;
-}
-
-#battery.warning:not(.charging) {
-    color: white;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: black;
-    }
-}
-
-#idle_inhibitor{
-    color: #be9b7b;
-}
-
-#pulseaudio{
-    color: #ebcb8b
-}
-
-#network {
-    color: #bf616a;
-}
-#network.disconnected {
-    color: #bf616a;
-}
-
-#bluetooth{
-    color: #81a1c1;
+{
+    "layer": "top",
+    "position": "top", 
+    "height": 25,
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["sway/language", "custom/parag", "idle_inhibitor", "bluetooth", "network", "custom/parag", "pulseaudio", "battery", "custom/parag", "custom/date", "clock"],
+    // Modules configuration
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"format": "{icon}",
+	 	"persistent_workspaces": {
+	 		"1": [],
+	 		"2": [],
+	 		"3": [],
+	},
+         	"format-icons": {
+             		"1": "1",
+             		"2": "2",
+             		"3": "3",
+             		"4": "4",
+             		"5": "5",
+             		"6": "6",
+             		"7": "7",
+             		"8": "8",
+             		"9": "9",
+             		"10": "10",
+         }
+     },
+      "tray": {
+        "spacing": 10,
+        "icon-size": 12,
+    },
+    "idle_inhibitor": {
+        "format": "[{icon}]",
+        "format-icons": {
+            "activated": "1",
+            "deactivated": "0"
+        }
+    },
+    "bluetooth": {
+        "format": "[{icon}]",
+        "format-alt": "[{icon}]",
+        "interval": 30,
+        "format-icons": {
+            "enabled": "1",
+            "disabled": "0"
+        },
+        "tooltip-format": " {} ",
+        "on-click": "bluetooth toggle"
+    },
+    "custom/parag": {
+        "format": "–",
+    },
+        "sway/language": {
+        "format": "{}",
+        "max-length": 50
+    },
+	"clock": {
+        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        	"format": "{:%R} "
+	},
+	"battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "[{capacity}]",
+        "format-charging": "[{capacity}]",
+        "format-plugged": "[{capacity}]",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+	"network": {
+        	"format-wifi": "[1]",
+        	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        	"format-linked": "{ifname} (No IP) ",
+        	"format-disconnected": "[0]",
+            "on-click": "nmcli dev wifi rescan && kitty -- zsh -c nmtui"
+	},
+    "pulseaudio": {
+		"format": "[{volume}]",
+        	"format-muted": "0",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    /* "custom/weather": { */
+        /* "exec": "curl 'https://wttr.in/?format=1'", */
+        /* "interval": 3600 */
+    /* }, */
 }
