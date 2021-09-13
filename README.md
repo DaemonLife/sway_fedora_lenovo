@@ -69,6 +69,7 @@ Installing Sway
 - wofi: demenu analog, app search.
 - waybar: better bar.
 - kitty: IMHO, best terminal.
+- mako: notifications daemon.
 - swayidle, swaylock: it's your locksreen. 
 - pulseaudio-utils, playerctl: for pactl and playctl commands to change volume, etc.
 - pavucontrol: simple audio control with gui.
@@ -77,7 +78,7 @@ Installing Sway
 - wl-clipboard, clipman: proggrams for clipboard.
 - light: control monitor brightness.
 ~~~
-sudo dnf install sway wofi waybar kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard clipman light
+sudo dnf install sway wofi waybar mako kitty swayidle swaylock pulseaudio-utils playerctl pavucontrol NetworkManager-tui udiskie wl-clipboard clipman light
 ~~~
 Reboot after all and remember to login to sway in GDM.
 ~~~
