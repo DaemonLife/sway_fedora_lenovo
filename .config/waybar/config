@@ -4,7 +4,7 @@
     "height": 25,
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
-    "modules-right": ["sway/language", "custom/parag", "idle_inhibitor", "bluetooth", "network", "custom/parag", "pulseaudio", "battery", "custom/parag", "custom/date", "clock"],
+    "modules-right": ["tray", "custom/parag", "sway/language", "custom/parag", "idle_inhibitor", "bluetooth", "network", "custom/parag", "pulseaudio", "battery", "custom/parag", "custom/date", "clock"],
     // Modules configuration
 	"sway/workspaces": {
 		"disable-scroll": true,
@@ -16,10 +16,10 @@
 	 		"3": [],
 	},
          	"format-icons": {
-             		"1": "1",
-             		"2": "2",
-             		"3": "3",
-             		"4": "4",
+             		"1": "",
+             		"2": "",
+             		"3": "",
+             		"4": "",
              		"5": "5",
              		"6": "6",
              		"7": "7",
@@ -29,29 +29,29 @@
          }
      },
       "tray": {
-        "spacing": 10,
+        "spacing": 12,
         "icon-size": 12,
     },
     "idle_inhibitor": {
-        "format": "[{icon}]",
+        "format": "{icon}",
         "format-icons": {
-            "activated": "1",
-            "deactivated": "0"
+            "activated": "",
+            "deactivated": ""
         }
     },
     "bluetooth": {
-        "format": "[{icon}]",
-        "format-alt": "[{icon}]",
+        "format": "{icon}",
+        "format-alt": "{icon}",
         "interval": 30,
         "format-icons": {
-            "enabled": "1",
-            "disabled": "0"
+            "enabled": "",
+            "disabled": ""
         },
         "tooltip-format": " {} ",
         "on-click": "bluetooth toggle"
     },
     "custom/parag": {
-        "format": "–",
+        "format": " | ",
     },
         "sway/language": {
         "format": "{}",
@@ -67,9 +67,9 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "[{capacity}]",
-        "format-charging": "[{capacity}]",
-        "format-plugged": "[{capacity}]",
+        "format": "{capacity}%",
+        "format-charging": "{capacity}%",
+        "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -79,15 +79,15 @@
         "bat": "BAT2"
     },
 	"network": {
-        	"format-wifi": "[1]",
+        	"format-wifi": "",
         	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         	"format-linked": "{ifname} (No IP) ",
-        	"format-disconnected": "[0]",
+        	"format-disconnected": "",
             "on-click": "nmcli dev wifi rescan && kitty -- zsh -c nmtui"
 	},
     "pulseaudio": {
-		"format": "[{volume}]",
-        	"format-muted": "0",
+		"format": "{volume}%",
+        	"format-muted": "0%",
         "format-icons": {
             "headphone": "",
             "hands-free": "",
