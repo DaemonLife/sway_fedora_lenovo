@@ -24,7 +24,9 @@ window#waybar {
 #parag{
     margin: 0 6 0 6;
 }
-
+#clock{
+    margin-right: 6px;
+}
 #language{
     color: #E5E5E5;
 }
