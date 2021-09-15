@@ -1,23 +1,39 @@
 # Default config for sway
 #
+#
+#
 # run apps
 #
+exec screen safeeyes 
 exec wl-paste -t text --watch clipman store
 exec udiskie -a -n -t
+exec ~/.config/sway/scripts/opacity.py
+
 # Read `man 5 sway` for a complete reference.
 font pango:FantasqueSansMono Nerd Font 12
 # default_border pixel 1
 # titlebar_border_thickness 1
-gaps outer 5
-gaps inner 5
+
+# gapss and borders
+gaps horizontal 0 
+gaps vertical 0 
+gaps top 0 
+gaps right 0 
+gaps bottom 0 
+gaps left 0
+# between frame
+gaps outer 2
+ # between windows
+gaps inner 10
+default_border pixel 0
+# idki
 client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
 client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
-# xwayland disable
 
 ### Variables
-#
+set $term kitty
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $menu wofi --show=drun 
@@ -26,21 +42,23 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
-set $term kitty
 
 ### Output configuration
 # swaymsg -t get_outputs
 # output eDP-1 pos 0 0 res 1920x1080
-#
-output eDP-1 pos 1920 0 res 1920x1080
-output HDMI-A-1 pos 0 0 res 1920x1080@74.973Hz
+output eDP-1 {
+    pos 1920 0 res 1920x1080
+    scale 1.25
+    # background ~/wallpaper.png fill
+}
+output HDMI-A-1 {
+    pos 0 0 res 1920x1080@74.973Hz
+    # background ~/wallpaper.png fill
+}
 # output HDMI-A-1 pos 1920 0 res 1920x1080
-output eDP-1 scale 1.5
 
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-# output * bg /usr/share/backgrounds/default.png fill
-output * bg /home/user/Pictures/Wallpapers/coffee.jpg fill
+# wallpapers
+output * bg /home/user/Pictures/Wallpapers/sea.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
@@ -57,13 +75,10 @@ input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
     accel_profile adaptive # flat/adaptive
    }
 
+# Change cursor
 seat seat0 xcursor_theme Qogir-dark 25
 
-# apps
-
-# gaps inner 10
-default_border none
-
+# Disable IDLe
 # xwayland version
 for_window [class="Celluloid"] inhibit_idle fullscreen
 # wayland vesion
@@ -88,7 +103,6 @@ mode "$screenshot" {
 bindsym $mod+Print mode "$screenshot"
 
 # Brightness control
-
 bindsym XF86MonBrightnessUp exec light -A 10
 bindsym XF86MonBrightnessDown exec light -U 10
 bindsym $mod+XF86MonBrightnessUp exec light -A 2
@@ -112,13 +126,19 @@ bindsym XF86AudioStop exec playerctl stop
 
 # Other
 bindsym XF86Calculator exec gnome-calculator
+bindsym $mod+Shift+f exec firefox
+
+# hide_edge_borders smart
+# smart_borders on
 
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 305 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
-   
+
+    bindsym $mod+P exec swaylock -f -c 000000
+
     # Start a terminal
     bindsym $mod+Return exec $term
     # Kill focused window
@@ -204,7 +224,7 @@ exec swayidle -w \
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    # bindsym $mod+space focus mode_toggle
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
