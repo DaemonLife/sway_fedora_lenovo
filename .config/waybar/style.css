@@ -13,27 +13,25 @@ window#waybar {
     background: #383c4a;
 }
 #window{
-    /* font-family: "Cantarell"; */
+    font-family: "Cantarell";
 }
 
-#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
+#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag, #power{
     margin-right: 3px;
     margin-left: 3px;
     font-size: 14px;
 }
 #parag{
-    margin: 0 6 0 6;
-}
-#clock{
-    margin-right: 6px;
+    margin: 0 5 0 5;
 }
 #language{
-    color: #E5E5E5;
+    /* color: #EC9EC0; */
 }
-
+#power{
+    color: #bca88e;
+}
 #workspaces button {
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
+    padding: 0 3 0 3;
 }
 #workspaces button.focused {
     background-color: #bf616a;
@@ -61,13 +59,12 @@ window#waybar {
 }
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: black;
+        color: #bf616a;
     }
 }
 
 #idle_inhibitor{
-    color: #C6B491;
+    color: #d0b49f;
 }
 
 #pulseaudio{
@@ -75,14 +72,18 @@ window#waybar {
 }
 
 #network {
-    color: #667BC4;
+    /* color: #189ab4; */
+    color: #d67373;
 }
 #network.disconnected {
     color: #8181c1;
 }
 
 #bluetooth{
-    color: #81a1c1;
+    color: #2e8bc0;
 }
 
-
+#tray{
+    color: red;
+    font-size: 14px;
+}
