@@ -291,8 +291,8 @@ include /etc/sway/config.d/*
 # Check class by : xprop
 # swaymsg -t get_tree
 assign [class="Firefox"] 2
-assign [class="Telegram"] 1
 assign [class="Spotify"] 1
+assign [class="Telegram"] 1
 assign [app_id="org.gnome.Nautilus"] 4  
 assign [app_id="org.gnome.Nautilus"] 4  
 
@@ -306,6 +306,6 @@ exec firefox
 exec wl-paste -t text --watch clipman store
 exec udiskie -a -n -t
 
-exec flatpak run org.telegram.desktop
 exec flatpak run com.spotify.Client
+exec flatpak run org.telegram.desktop
 exec ~/.config/sway/scripts/opacity.py
