@@ -11,8 +11,8 @@ gaps top 0
 gaps right 0 
 gaps bottom 0 
 gaps left 0
-gaps outer 5
-gaps inner 5
+gaps outer 4
+gaps inner 7
 smart_gaps on
 
 set $gnome-schema org.gnome.desktop.interface
@@ -28,7 +28,7 @@ set $focus-text-color    #87CEEB
 
 # border artean windows
 # hide_edge_borders both
-default_border pixel 2
+default_border pixel 5
 titlebar_border_thickness 0
 
 # idki
@@ -52,7 +52,7 @@ set $right l
 # swaymsg -t get_outputs
 # output eDP-1 pos 0 0 res 1920x1080
 output eDP-1 {
-    pos 1920 0 res 1920x1080
+    pos 1920 700 res 1920x1080
     scale 1.25
     # background ~/wallpaper.png fill
 }
