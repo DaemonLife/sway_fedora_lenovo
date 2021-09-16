@@ -1,18 +1,8 @@
 # Default config for sway
 #
-#
-#
-# run apps
-#
-exec screen safeeyes 
-exec wl-paste -t text --watch clipman store
-exec udiskie -a -n -t
-exec ~/.config/sway/scripts/opacity.py
 
 # Read `man 5 sway` for a complete reference.
 font pango:FantasqueSansMono Nerd Font 12
-# default_border pixel 1
-# titlebar_border_thickness 1
 
 # gapss and borders
 gaps horizontal 0 
@@ -21,11 +11,26 @@ gaps top 0
 gaps right 0 
 gaps bottom 0 
 gaps left 0
-# between frame
-gaps outer 2
- # between windows
-gaps inner 10
-default_border pixel 0
+gaps outer 5
+gaps inner 5
+smart_gaps on
+
+set $gnome-schema org.gnome.desktop.interface
+# exec_always gsettings set $gnome-schema gtk-theme 'Arc-Dark'
+
+# Set colors
+set $bg-color            #333333
+set $inactive-bg-color   #000000
+set $text-color          #f3f4f5
+set $inactive-text-color #676E7D
+set $urgent-bg-color     #E53935
+set $focus-text-color    #87CEEB
+
+# border artean windows
+# hide_edge_borders both
+default_border pixel 2
+titlebar_border_thickness 0
+
 # idki
 client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
 client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
@@ -56,6 +61,13 @@ output HDMI-A-1 {
     # background ~/wallpaper.png fill
 }
 # output HDMI-A-1 pos 1920 0 res 1920x1080
+
+
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+
 
 # wallpapers
 output * bg /home/user/Pictures/Wallpapers/sea.jpg fill
@@ -140,11 +152,11 @@ exec swayidle -w \
     bindsym $mod+P exec swaylock -f -c 000000
 
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym --to-code $mod+Return exec $term
     # Kill focused window
-    bindsym --to-code $mod+Shift+q kill
+    bindsym --to-code $mod+q kill
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym --to-code $mod+d exec $menu
     # mouse button for dragging.
     floating_modifier $mod normal
     # Reload the configuration file
@@ -272,3 +284,28 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+
+
+# Bind App to workspace
+# Check class by : xprop
+# swaymsg -t get_tree
+assign [class="Firefox"] 2
+assign [class="Telegram"] 1
+assign [class="Spotify"] 1
+assign [app_id="org.gnome.Nautilus"] 4  
+assign [app_id="org.gnome.Nautilus"] 4  
+
+assign [app_id="safeeyes"] 1
+exec ~/.local/bin/safeeyes 
+
+exec nautilus
+exec nautilus
+exec firefox
+
+exec wl-paste -t text --watch clipman store
+exec udiskie -a -n -t
+
+exec flatpak run org.telegram.desktop
+exec flatpak run com.spotify.Client
+exec ~/.config/sway/scripts/opacity.py
