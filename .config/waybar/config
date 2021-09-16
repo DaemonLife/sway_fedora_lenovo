@@ -34,8 +34,8 @@
     },
     
     "tray": {
-        "spacing": 12,
-        "icon-size": 12,
+        "spacing": 8,
+        "icon-size": 7,
     },
     
     "idle_inhibitor": {
@@ -118,4 +118,9 @@
         "format": " ",
 	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#2e3440 --button-background=#e5e9f0 --button-border=#e5e9f0 --border-bottom=#2e3440 --"
 	},
+
+
+
+
+
 }
