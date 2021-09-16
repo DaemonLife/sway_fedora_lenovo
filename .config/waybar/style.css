@@ -9,9 +9,9 @@
     color: #E5E5E5;
 }
 
-window#waybar {
-    background: #383c4a;
-}
+/* window#waybar { */
+    /* background: #383c4a; */
+/* } */
 #window{
     font-family: "Cantarell";
 }
@@ -21,6 +21,11 @@ window#waybar {
     margin-left: 3px;
     font-size: 14px;
 }
+
+#tray {
+}
+
+
 #parag{
     margin: 0 5 0 5;
 }
@@ -86,4 +91,10 @@ window#waybar {
 #tray{
     color: red;
     font-size: 14px;
+}
+
+window#waybar {
+    background: @theme_base_color;
+    border-bottom: 1px solid @unfocused_borders;
+    color: @theme_text_color;
 }
