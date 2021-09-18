@@ -1,9 +1,13 @@
-"Настройка отступов
+
 set expandtab
 " set smarttab
 " set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+
+
+
 
 set clipboard=unnamedplus
 set cursorline
@@ -40,19 +44,20 @@ let g:indent_guides_enable_on_vim_startup = 1
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-f> :NERDTreeFind<CR>:
 
 map <F9> :Goyo<CR>:PencilSoft<CR>
+map <F10> :PencilSoft<CR
 
 "Цветовая схема
 if (has('termguicolors'))
   set termguicolors
 endif
-
-colorscheme material
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'darker'
-set background=dark
+colorscheme arc
+" colorscheme material
+" let g:material_terminal_italics = 1
+" let g:material_theme_style = 'darker'
+" set background=dark
 let g:lightline = {
       \ 'colorscheme': 'one',
       \ }
@@ -60,6 +65,19 @@ let g:lightline = {
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+
+set nocompatible
+filetype plugin on       " may already be in your .vimrc
+
+augroup pencil
+    autocmd!
+    autocmd FileType markdown,mkd call pencil#init()
+    autocmd FileType text         call pencil#init()
+augroup END
+
+
+
+
 
 "vim-plug. :PlugInstall
 call plug#begin()
@@ -73,5 +91,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'reedes/vim-pencil'
 
 call plug#end()
