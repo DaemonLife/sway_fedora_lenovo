@@ -138,7 +138,7 @@ bindsym XF86AudioStop exec playerctl stop
 
 # Other
 bindsym XF86Calculator exec gnome-calculator
-bindsym $mod+Shift+f exec firefox
+bindsym --to-code $mod+Shift+f exec firefox
 
 # hide_edge_borders smart
 # smart_borders on
@@ -149,12 +149,12 @@ exec swayidle -w \
         resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000'
 
-    bindsym $mod+P exec swaylock -f -c 000000
+    bindsym --to-code $mod+P exec swaylock -f -c 000000
 
     # Start a terminal
     bindsym --to-code $mod+Return exec $term
     # Kill focused window
-    bindsym --to-code $mod+q kill
+    bindsym --to-code $mod+Shift+q kill
     # Start your launcher
     bindsym --to-code $mod+d exec $menu
     # mouse button for dragging.
@@ -304,7 +304,7 @@ exec nautilus
 exec firefox
 
 exec wl-paste -t text --watch clipman store
-exec udiskie -a -n -t
+exec udiskie -a -n #-t
 
 exec flatpak run com.spotify.Client
 exec flatpak run org.telegram.desktop
