@@ -2,57 +2,69 @@
     border: none;
     border-radius: 0;
     /* font-family: "Ubuntu Nerd Font"; */
-    font-family: "Inconsolata Medium";
+    /* font-family: "Inconsolata Medium"; */
+    font-family: Roboto, Helvetica, Arial, sans-serif;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     min-height: 0;
-    color: #E5E5E5;
+    color: #d8dee9;    
 }
 
-/* window#waybar { */
-    /* background: #383c4a; */
-/* } */
+window#waybar {
+    background-color: rgba(56, 60, 74, 0.8);
+    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
+    /* color: #535d6c; */
+    transition-property: background-color;
+    transition-duration: .5s;
+
+}
 #window{
     font-family: "Cantarell";
 }
 
-#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag, #power{
+#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag, #custom-power{
     margin-right: 3px;
     margin-left: 3px;
     font-size: 14px;
 }
 
 #tray {
+    font-family: "Inconsolata Medium";
+    font-weight: bold;
+    font-size: 14px;
+    min-height: 0;
+}
+
+#custom-power {
 }
 
 
-#parag{
-    margin: 0 5 0 5;
+#custom-parag{
+    margin: 0 4 0 4;
 }
 #language{
-    /* color: #EC9EC0; */
 }
-#power{
-    color: #bca88e;
+#custom-power{
+    margin: 0 4 0 0;
 }
 #workspaces button {
-    padding: 0 3 0 3;
+    padding: 0 6 0 6;
 }
 #workspaces button.focused {
-    background-color: #bf616a;
+    background-color: #88c0d0;
     font-weight: bold;
 }
 
-#battery{
-    color: #5E6D5D;
-}
-#battery.charging {
-    color: #a3be8c;
-}
-
-#battery.full {
-    color: #a3be8c;
-}
+/* #battery{ */
+/*     color: #a3be8c; */
+/* } */
+/* #battery.charging { */
+/*     color: #a3be8c; */
+/* } */
+/*  */
+/* #battery.full { */
+/*     color: #a3be8c; */
+/* } */
 
 #battery.warning:not(.charging) {
     color: white;
@@ -69,32 +81,33 @@
 }
 
 #idle_inhibitor{
-    color: #d0b49f;
+    /* color: #be9b7b; */
 }
 
 #pulseaudio{
-    color: #FFDDB0
+    /* color: #ebcb8b; */
 }
 
 #network {
     /* color: #189ab4; */
-    color: #d67373;
+    /* color: #bf616a; */
 }
 #network.disconnected {
-    color: #8181c1;
+    color: #bf616a;
 }
 
 #bluetooth{
-    color: #2e8bc0;
+    /* color: #5e81ac; */
 }
 
-#tray{
-    color: red;
-    font-size: 14px;
-}
 
-window#waybar {
-    background: @theme_base_color;
-    border-bottom: 1px solid @unfocused_borders;
-    color: @theme_text_color;
-}
+
+
+
+
+
+/* window#waybar { */
+/*     background: @theme_base_color; */
+    /* border-bottom: 1px solid @unfocused_borders; */
+    /* color: @theme_text_color; */
+/* } */
