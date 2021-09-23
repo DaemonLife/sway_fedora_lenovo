@@ -22,30 +22,34 @@ window#waybar {
     font-family: "Cantarell";
 }
 
-#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag, #custom-power{
+#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
     margin-right: 3px;
     margin-left: 3px;
     font-size: 14px;
 }
 
+
+#clock {
+    margin-right: 5px;
+    margin-left: -0px;
+}
+
 #tray {
     font-family: "Inconsolata Medium";
     font-weight: bold;
-    font-size: 14px;
+    font-size: 7px;
     min-height: 0;
 }
 
-#custom-power {
-}
-
-
 #custom-parag{
-    margin: 0 4 0 4;
+    font-weight: bold;
+    /* font: bold; */
+    margin: 0 2 0 2;
 }
 #language{
 }
 #custom-power{
-    margin: 0 4 0 0;
+    margin: -1 8 0 0;
 }
 #workspaces button {
     padding: 0 6 0 6;
@@ -55,7 +59,9 @@ window#waybar {
     font-weight: bold;
 }
 
-/* #battery{ */
+#battery{
+margin-right: -0px;
+}
 /*     color: #a3be8c; */
 /* } */
 /* #battery.charging { */
