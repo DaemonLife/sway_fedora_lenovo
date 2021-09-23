@@ -1,6 +1,9 @@
 # Default config for sway
 #
 
+
+# xwayland disable
+
 # Read `man 5 sway` for a complete reference.
 font pango:FantasqueSansMono Nerd Font 12
 
@@ -53,7 +56,7 @@ set $right l
 # output eDP-1 pos 0 0 res 1920x1080
 output eDP-1 {
     pos 1920 700 res 1920x1080
-    scale 1.25
+    scale 1.5
     # background ~/wallpaper.png fill
 }
 output HDMI-A-1 {
@@ -70,7 +73,7 @@ workspace 4 output HDMI-A-1
 
 
 # wallpapers
-output * bg /home/user/Pictures/Wallpapers/sea.jpg fill
+output * bg /home/user/Pictures/Wallpapers/cos.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
@@ -138,7 +141,7 @@ bindsym XF86AudioStop exec playerctl stop
 
 # Other
 bindsym XF86Calculator exec gnome-calculator
-bindsym --to-code $mod+Shift+f exec firefox
+bindsym --to-code $mod+Shift+f exec MOZ_ENABLE_WAYLAND=1 firefox
 
 # hide_edge_borders smart
 # smart_borders on
@@ -290,22 +293,17 @@ include /etc/sway/config.d/*
 # Bind App to workspace
 # Check class by : xprop
 # swaymsg -t get_tree
-assign [class="Firefox"] 2
 assign [class="Spotify"] 1
 assign [class="Telegram"] 1
-assign [app_id="org.gnome.Nautilus"] 4  
-assign [app_id="org.gnome.Nautilus"] 4  
 
 assign [app_id="safeeyes"] 1
 exec ~/.local/bin/safeeyes 
-
-exec nautilus
-exec nautilus
-exec firefox
 
 exec wl-paste -t text --watch clipman store
 exec udiskie -a -n #-t
 
 exec flatpak run com.spotify.Client
 exec flatpak run org.telegram.desktop
-exec ~/.config/sway/scripts/opacity.py
+
+# assign [app_id="opacity"] 1
+exec python3 ~/.config/sway/scripts/opacity.py
