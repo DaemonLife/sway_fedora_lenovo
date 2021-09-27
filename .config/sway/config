@@ -1,11 +1,11 @@
 # Default config for sway
 #
-
+include colorscheme
 
 # xwayland disable
 
 # Read `man 5 sway` for a complete reference.
-font pango:FantasqueSansMono Nerd Font 12
+font pango: powerline
 
 # gapss and borders
 gaps horizontal 0 
@@ -18,16 +18,23 @@ gaps outer 4
 gaps inner 7
 smart_gaps on
 
-set $gnome-schema org.gnome.desktop.interface
+# set $gnome-schema org.gnome.desktop.interface
 # exec_always gsettings set $gnome-schema gtk-theme 'Arc-Dark'
 
 # Set colors
-set $bg-color            #333333
-set $inactive-bg-color   #000000
-set $text-color          #f3f4f5
-set $inactive-text-color #676E7D
-set $urgent-bg-color     #E53935
-set $focus-text-color    #87CEEB
+# set $bg-color            #333333
+# set $inactive-bg-color   #000000
+# set $text-color          #f3f4f5
+# set $inactive-text-color #676E7D
+# set $urgent-bg-color     #E53935
+# set $focus-text-color    #87CEEB
+
+#                       Border  BG      Text    Ind     Child Border
+client.focused          $base05 $base0D $base00 $base0D $base0D
+client.focused_inactive $base01 $base01 $base05 $base03 $base01
+client.unfocused        $base01 $base00 $base05 $base01 $base01
+client.urgent           $base08 $base08 $base00 $base08 $base08
+
 
 # border artean windows
 # hide_edge_borders both
@@ -73,7 +80,7 @@ workspace 4 output HDMI-A-1
 
 
 # wallpapers
-output * bg /home/user/Pictures/Wallpapers/cos.jpg fill
+output * bg /home/user/Pictures/Wallpapers/img1.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
@@ -306,4 +313,4 @@ exec flatpak run com.spotify.Client
 exec flatpak run org.telegram.desktop
 
 # assign [app_id="opacity"] 1
-exec python3 ~/.config/sway/scripts/opacity.py
+# exec python3 ~/.config/sway/scripts/opacity.py
