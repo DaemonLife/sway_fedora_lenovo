@@ -1,76 +1,71 @@
 * {
-    border: none;
-    border-radius: 0;
+    /* border: none; */
+    /* border-radius: 0; */
     /* font-family: "Ubuntu Nerd Font"; */
     /* font-family: "Inconsolata Medium"; */
-    font-family: Roboto, Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    min-height: 0;
+    /* font-family: Roboto, Helvetica, Arial, sans-serif; */
+    font-family: Helvetica;
+    /* min-height: 0; */
     color: #d8dee9;    
 }
 
 window#waybar {
-    background-color: rgba(56, 60, 74, 0.8);
-    border-bottom: 0px solid rgba(100, 114, 125, 0.5);
-    /* color: #535d6c; */
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: rgba(56, 60, 74, 1.0);
 
 }
 #window{
-    font-family: "Cantarell";
+    font-weight: bold;
+    font-size: 15;
+    padding: 0 0 0 0;
 }
 
-#language, #tray, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
+
+
+#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
     margin-right: 3px;
     margin-left: 3px;
     font-size: 14px;
+    font-weight: bold;
 }
 
 
 #clock {
-    margin-right: 5px;
-    margin-left: -0px;
+    margin-top: 3px;
 }
 
 #tray {
-    font-family: "Inconsolata Medium";
-    font-weight: bold;
-    font-size: 7px;
-    min-height: 0;
+    /* font-size: 12; */
 }
 
 #custom-parag{
     font-weight: bold;
-    /* font: bold; */
-    margin: 0 2 0 2;
+    margin: 4 2 2 2;
 }
 #language{
+    margin-top: 1px;
 }
 #custom-power{
-    margin: -1 8 0 0;
+    margin: 2 0 0 0;
 }
 #workspaces button {
-    padding: 0 6 0 6;
+        font-size: 14px;
+        font-weight: bold;
+    /* background-color: red; */
+    /* font-weight: bold; */
 }
 #workspaces button.focused {
-    background-color: #88c0d0;
+    /* background-color: #88c0d0; */
+    border-color: rgba(56, 60, 74, 0) rgba(56, 60, 74, 0) #88c0d0 rgba(56, 60, 74, 0); 
     font-weight: bold;
+    color: #88c0d0;
+    border-width: 6px;
+    font-size: 14px;
+    margin: 0 14 0 14; 
 }
 
 #battery{
-margin-right: -0px;
-}
-/*     color: #a3be8c; */
-/* } */
-/* #battery.charging { */
-/*     color: #a3be8c; */
-/* } */
-/*  */
-/* #battery.full { */
-/*     color: #a3be8c; */
-/* } */
+margin-top: 3px;
+} 
 
 #battery.warning:not(.charging) {
     color: white;
@@ -87,22 +82,23 @@ margin-right: -0px;
 }
 
 #idle_inhibitor{
+    margin-top: -0px;
     /* color: #be9b7b; */
 }
 
 #pulseaudio{
-    /* color: #ebcb8b; */
+    margin-top: 3px;
 }
 
 #network {
-    /* color: #189ab4; */
-    /* color: #bf616a; */
+    margin-top: -0px;
 }
 #network.disconnected {
     color: #bf616a;
 }
 
 #bluetooth{
+    margin-top:  0px;
     /* color: #5e81ac; */
 }
 
