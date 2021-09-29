@@ -20,7 +20,7 @@ smart_gaps on
 
 # border artean windows
 # hide_edge_borders both
-default_border pixel 5
+default_border pixel 2
 titlebar_border_thickness 0
 
 # idki
