@@ -1,6 +1,6 @@
 # Default config for sway
 #
-include colorscheme
+# include colorscheme
 
 # xwayland disable
 
@@ -18,33 +18,15 @@ gaps outer 4
 gaps inner 7
 smart_gaps on
 
-# set $gnome-schema org.gnome.desktop.interface
-# exec_always gsettings set $gnome-schema gtk-theme 'Arc-Dark'
-
-# Set colors
-# set $bg-color            #333333
-# set $inactive-bg-color   #000000
-# set $text-color          #f3f4f5
-# set $inactive-text-color #676E7D
-# set $urgent-bg-color     #E53935
-# set $focus-text-color    #87CEEB
-
-#                       Border  BG      Text    Ind     Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-
-
 # border artean windows
 # hide_edge_borders both
 default_border pixel 5
 titlebar_border_thickness 0
 
 # idki
-client.focused          #88c0d0 #434c5e #eceff4 #8fbcbb   #88c0d0
-client.focused_inactive #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
-client.unfocused        #88c0d0 #2e3440 #d8dee9 #4c566a   #4c566a
+client.focused          #bf616a #bf616a #bf616a #bf616a   
+client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440
+client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
 ### Variables
