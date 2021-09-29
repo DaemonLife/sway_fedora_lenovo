@@ -1,72 +1,95 @@
+
+@define-color col1 #bf616a;
+@define-color col2 #00afb9;
+@define-color col3 #faf9f9;
+@define-color col4 #4c566a;
+@define-color col5 #0E606B;
+@define-color col6 #FFC24B;
+
+
 * {
-    /* border: none; */
+    border: none;
     /* border-radius: 0; */
     /* font-family: "Ubuntu Nerd Font"; */
-    /* font-family: "Inconsolata Medium"; */
+    /* font-family:i "Inconsolata Medium"; */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: Helvetica;
-    /* min-height: 0; */
-    color: #d8dee9;    
+    font-family: Inconsolata;
 }
 
 window#waybar {
-    background-color: rgba(56, 60, 74, 1.0);
-
+    background-color: rgba(0, 0, 0, 0);
 }
-#window{
-    font-weight: bold;
-    font-size: 15;
-    padding: 0 0 0 0;
-}
-
-
 
 #language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
-    margin-right: 3px;
-    margin-left: 3px;
+    /* margin-right: 3px; */
+    /* margin-left: 3px; */
+    padding: 0 8 0 8;
     font-size: 14px;
     font-weight: bold;
+    color: @col3;
 }
 
+#workspaces button {
+    background-color: @col4;
+    font-weight: bold;
+    margin: 0 0 0 0;
+    border-radius: 0;
+    padding-right: 10;
+    padding-left: 10;
 
-#clock {
-    margin-top: 3px;
+}
+#workspaces button.focused {
+    background-color: @col1;
+    font-weight: bold;
+    }
+
+#window{
+    font-weight: bold;
+    padding: 0 10 0 10;
+    background-color: @col1; 
+    color: @col3;
 }
 
 #tray {
-    /* font-size: 12; */
+    background-color: @col4;
 }
 
 #custom-parag{
-    font-weight: bold;
-    margin: 4 2 2 2;
+    background-color: @col4;
+    font-weight: bolder;
+
 }
+
 #language{
-    margin-top: 1px;
+    background-color: @col4;
 }
-#custom-power{
-    margin: 2 0 0 0;
+
+#idle_inhibitor{
+    background-color: @col1;
+    margin-top: -0px;
 }
-#workspaces button {
-        font-size: 14px;
-        font-weight: bold;
-    /* background-color: red; */
-    /* font-weight: bold; */
+
+#bluetooth{
+    background-color: @col1;
+    margin-top:  0px;
+    /* color: #5e81ac; */
 }
-#workspaces button.focused {
-    /* background-color: #88c0d0; */
-    border-color: rgba(56, 60, 74, 0) rgba(56, 60, 74, 0) #88c0d0 rgba(56, 60, 74, 0); 
-    font-weight: bold;
-    color: #88c0d0;
-    border-width: 6px;
-    font-size: 14px;
-    margin: 0 14 0 14; 
+
+#network {
+    background-color: @col1;
+    margin-top: -0px;
+}
+#network.disconnected {
+    color: @col1;
+}
+
+#pulseaudio{
+    background-color: @col4;
 }
 
 #battery{
-margin-top: 3px;
+    background-color: @col4;
 } 
-
 #battery.warning:not(.charging) {
     color: white;
     animation-name: blink;
@@ -77,39 +100,16 @@ margin-top: 3px;
 }
 @keyframes blink {
     to {
-        color: #bf616a;
+        color: @col1;
     }
 }
 
-#idle_inhibitor{
-    margin-top: -0px;
-    /* color: #be9b7b; */
+#clock {
+    background-color: @col4;
 }
 
-#pulseaudio{
-    margin-top: 3px;
+#custom-power{
+    background-color: @col1;
+    padding: 0 0 0 5;
 }
 
-#network {
-    margin-top: -0px;
-}
-#network.disconnected {
-    color: #bf616a;
-}
-
-#bluetooth{
-    margin-top:  0px;
-    /* color: #5e81ac; */
-}
-
-
-
-
-
-
-
-/* window#waybar { */
-/*     background: @theme_base_color; */
-    /* border-bottom: 1px solid @unfocused_borders; */
-    /* color: @theme_text_color; */
-/* } */
