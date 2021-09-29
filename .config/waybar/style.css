@@ -1,8 +1,7 @@
-
 @define-color col1 #bf616a;
 @define-color col2 #00afb9;
 @define-color col3 #faf9f9;
-@define-color col4 #4c566a;
+@define-color col4 #2e3440;
 @define-color col5 #0E606B;
 @define-color col6 #FFC24B;
 
@@ -17,14 +16,15 @@
 }
 
 window#waybar {
-    background-color: rgba(0, 0, 0, 0);
+    background-color: #2e3440
+    
 }
 
-#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #parag{
+#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep{
     /* margin-right: 3px; */
     /* margin-left: 3px; */
-    padding: 0 8 0 8;
-    font-size: 14px;
+    padding: 0 4 0 4;
+    font-size: 12px;
     font-weight: bold;
     color: @col3;
 }
@@ -36,6 +36,7 @@ window#waybar {
     border-radius: 0;
     padding-right: 10;
     padding-left: 10;
+    font-size: 12px;
 
 }
 #workspaces button.focused {
@@ -54,30 +55,28 @@ window#waybar {
     background-color: @col4;
 }
 
-#custom-parag{
+#custom-sep{
     background-color: @col4;
     font-weight: bolder;
-
+    padding: 0 0 0 0
 }
 
 #language{
     background-color: @col4;
+    margin-top: -1
 }
 
 #idle_inhibitor{
-    background-color: @col1;
-    margin-top: -0px;
+    background-color: @col4;
 }
 
 #bluetooth{
-    background-color: @col1;
-    margin-top:  0px;
+    background-color: @col4;
     /* color: #5e81ac; */
 }
 
 #network {
-    background-color: @col1;
-    margin-top: -0px;
+    background-color: @col4;
 }
 #network.disconnected {
     color: @col1;
@@ -110,6 +109,6 @@ window#waybar {
 
 #custom-power{
     background-color: @col1;
-    padding: 0 0 0 5;
+    margin-right: -8
 }
 
