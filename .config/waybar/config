@@ -1,12 +1,12 @@
 {
     "layer": "top",
     "position": "top", 
-    "height": 10,
+    "height": 5,
     "modules-left": ["sway/workspaces"],
 
     "modules-center": ["custom/parag2", "custom/parag3", "sway/window", "custom/parag3","custom/parag2"],
 
-    "modules-right": ["tray", "sway/language", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery", "custom/date", "clock", "custom/power"],
+    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "bluetooth", "network", "custom/sep", "pulseaudio", "battery","custom/sep", "clock", "custom/power"],
 
 
 
@@ -60,7 +60,7 @@
         "on-click": "bluetooth toggle"
     },
     
-    "custom/parag": {
+    "custom/sep": {
         "format": "|",
     },
     
