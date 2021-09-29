@@ -6,7 +6,7 @@
 
     "modules-center": ["custom/parag2", "custom/parag3", "sway/window", "custom/parag3","custom/parag2"],
 
-    "modules-right": ["tray", "custom/parag", "sway/language", "custom/parag", "idle_inhibitor", "bluetooth", "network", "custom/parag", "pulseaudio", "custom/parag", "battery", "custom/parag", "custom/date", "clock", "custom/parag", "custom/power"],
+    "modules-right": ["tray", "sway/language", "idle_inhibitor", "bluetooth", "network", "pulseaudio", "battery", "custom/date", "clock", "custom/power"],
 
 
 
@@ -19,14 +19,15 @@
  		"1": [],
  		"2": [],
  		"3": [],
-                "4": []
+                "4": [],
+                "5": [],
 	},
        	"format-icons": {
        		"1": "lap",
        		"2": "dev",
        		"3": "www",
       		"4": "fun",
-       		"5": "5",
+       		"5": "tor",
        		"6": "6",
       		"7": "7",
        		"8": "8",
@@ -117,7 +118,7 @@
 
     "custom/power": {
         "format": "   ",
-	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#2e3440 --button-background=#e5e9f0 --button-border=#e5e9f0 --border-bottom=#2e3440 --"
+	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#ffffff --button-background=#e5e9f0 --button-border=#e5e9f0 --border-bottom=#2e3440 --"
 	},
 
 
