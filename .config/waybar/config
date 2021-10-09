@@ -1,12 +1,12 @@
 {
     "layer": "top",
     "position": "top", 
-    "height": 5,
+    "height": 20,
     "modules-left": ["sway/workspaces"],
 
-    "modules-center": ["custom/parag2", "custom/parag3", "sway/window", "custom/parag3","custom/parag2"],
+    "modules-center": ["sway/window"],
 
-    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "bluetooth", "network", "custom/sep", "pulseaudio", "battery","custom/sep", "clock", "custom/power"],
+    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "bluetooth", "network", "custom/sep", "pulseaudio", "battery", "custom/sep", "clock", "custom/power"],
 
 
 
@@ -36,8 +36,12 @@
         }
     },
 
+    "sway/window": {
+        
+    },
+
     "tray": {
-        /* "spacing": 10, */
+        "spacing": 10,
     },
     
     "idle_inhibitor": {
@@ -61,7 +65,7 @@
     },
     
     "custom/sep": {
-        "format": "|",
+        "format": "",
     },
     
     "sway/language": {
@@ -111,18 +115,10 @@
         },
         "on-click": "pavucontrol"
     },
-    "custom/weather": {
-        "exec": "curl 'https://wttr.in/?format=1'",
-        "interval": 3600
-    },
 
     "custom/power": {
-        "format": "   ",
+        "format": "    ",
 	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#ffffff --button-background=#e5e9f0 --button-border=#e5e9f0 --border-bottom=#2e3440 --"
 	},
-
-
-
-
 
 }
