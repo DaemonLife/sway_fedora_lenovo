@@ -1,4 +1,4 @@
-@define-color col1 #bf616a;
+@define-color col1 #84a0c6;
 @define-color col2 #00afb9;
 @define-color col3 #faf9f9;
 @define-color col4 #2e3440;
@@ -13,12 +13,14 @@
     /* font-family:i "Inconsolata Medium"; */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
     font-family: Inconsolata;
+    color: @col3; 
 }
 
 window#waybar {
     background-color: #2e3440
     
 }
+
 
 #language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep{
     /* margin-right: 3px; */
@@ -44,6 +46,8 @@ window#waybar {
     font-weight: bold;
     }
 
+/* #workspaces button */
+
 #window{
     font-weight: bold;
     padding: 0 10 0 10;
@@ -53,6 +57,7 @@ window#waybar {
 
 #tray {
     background-color: @col4;
+    margin-right: 3px;
 }
 
 #custom-sep{
@@ -109,6 +114,7 @@ window#waybar {
 
 #custom-power{
     background-color: @col1;
-    margin-right: -8
-}
+    margin-left: 0;
+    font-size: 12;
 
+}
