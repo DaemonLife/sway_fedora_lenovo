@@ -1,12 +1,12 @@
-anchor=bottom-right
-background-color=#383c4a
-text-color=#5294e2
+anchor=top-center
+background-color=#2e3440
+text-color=#d8dee9
 width=350
-margin=0,20,20
+margin=0,0,24
 padding=10
-border-size=2
-border-color=#383c4a
-border-radius=5
+border-size=0
+border-color=#2e3440
+border-radius=0
 default-timeout=10000
 group-by=summary
 
