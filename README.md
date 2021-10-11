@@ -180,3 +180,14 @@ Run this command in nvim.
 ~~~
 :PlugInstall
 ~~~
+
+## Other apps settings
+
+Spotify color theme
+https://github.com/khanhas/spicetify-cli
+https://github.com/morpheusthewhite/spicetify-themes - use Sleek, edit color file for Nord theme to be at the top
+
+Firefox
+https://addons.mozilla.org/en-US/firefox/addon/firefox-nord-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser
+
+
