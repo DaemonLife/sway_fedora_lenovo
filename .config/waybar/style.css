@@ -12,7 +12,8 @@
     /* font-family: "Ubuntu Nerd Font"; */
     /* font-family:i "Inconsolata Medium"; */
     /* font-family: Roboto, Helvetica, Arial, sans-serif; */
-    font-family: Inconsolata;
+    /* font-family: Inconsolata; */
+    font-family: Hack;
     color: @col3; 
 }
 
