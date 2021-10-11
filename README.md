@@ -1,3 +1,5 @@
+![image](https://user-images.githubusercontent.com/52444457/136836758-b4db5194-a660-4291-b058-691da0e6dfe3.png)
+
 # GNOME and SWAY setup for Fedora 34
 
 After install add all configs from this repository to your folders. Btw I use Lenovo Ideapad 5 15are05.
