@@ -5,7 +5,8 @@
 # xwayland disable
 
 # Read `man 5 sway` for a complete reference.
-font pango: powerline
+# font pango: powerline
+font pango: PressStart
 exec wl-paste -t text --watch clipman store
 
 # gapss and borders
@@ -128,6 +129,7 @@ bindsym XF86AudioStop exec playerctl stop
 # Other
 # bindsym XF86Calculator exec gnome-calculator
 bindsym --to-code $mod+Shift+f exec firefox
+bindsym --to-code $mod+Shift+n exec thunar
 
 # hide_edge_borders smart
 # smart_borders on
