@@ -190,5 +190,10 @@ Spotify color theme:
 Firefox:
 - https://addons.mozilla.org/en-US/firefox/addon/firefox-nord-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser
 
+Dark Reader in Firefox:
+- https://addons.mozilla.org/en-US/firefox/addon/darkreader/
+- set background color in extention: #2e3440
+- set text color in extention: #d8dee9
+
 Telegram theme:
 - https://t.me/addtheme/pPjFE19lIkgDwGg6
