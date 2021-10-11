@@ -1,124 +1,294 @@
-{
-    "layer": "top",
-    "position": "top", 
-    "height": 20,
-    "modules-left": ["sway/workspaces"],
+# Default config for sway
+#
+# include colorscheme
 
-    "modules-center": ["sway/window"],
+# xwayland disable
 
-    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "bluetooth", "network", "custom/sep", "pulseaudio", "battery", "custom/sep", "clock", "custom/power"],
+# Read `man 5 sway` for a complete reference.
+# font pango: powerline
+font pango: PressStart
+exec wl-paste -t text --watch clipman store
+
+# gapss and borders
+smart_gaps on
+gaps outer 4
+gaps inner 7
+
+# border artean windows
+# hide_edge_borders both
+smart_borders on
+default_border pixel 5
+titlebar_border_thickness 0
 
 
+# idki
+client.focused          #84a0c6 #84a0c6 #84a0c6 #84a0c6   
+client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440
+client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440
+client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
-// Modules configuration
-    "sway/workspaces": {
-	"disable-scroll": true,
-	"all-outputs": true,
-	"format": "{icon}",
- 	"persistent_workspaces": {
- 		"1": [],
- 		"2": [],
- 		"3": [],
-                "4": [],
-                "5": [],
-	},
-       	"format-icons": {
-       		"1": "lap",
-       		"2": "dev",
-       		"3": "www",
-      		"4": "fun",
-       		"5": "tor",
-       		"6": "6",
-      		"7": "7",
-       		"8": "8",
-       		"9": "9",
-       		"10": "10",
-        }
-    },
+### Variables
+set $term kitty
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+set $menu wofi --show=drun 
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
 
-    "sway/window": {
-        
-    },
-
-    "tray": {
-        "spacing": 10,
-    },
-    
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    
-    "bluetooth": {
-        "format": "{icon}",
-        "format-alt": "{icon}",
-        "interval": 30,
-        "format-icons": {
-            "enabled": "",
-            "disabled": ""
-        },
-        "tooltip-format": " {} ",
-        "on-click": "bluetooth toggle"
-    },
-    
-    "custom/sep": {
-        "format": "",
-    },
-    
-    "sway/language": {
-        "format": "{}",
-        "max-length": 58
-    },
-    
-    "clock": {
-       	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-       	"format": "{:%R}"
-    },
-
-    "battery": {
-        "states": {
-            "good": 90,
-            "warning": 30,
-            "critical": 15
-        },
-        "interval": 30,
-        "format": "{capacity}",
-        "format-charging": "{capacity}",
-        "format-plugged": "{capacity}",
-        "format-alt": "{time} {icon}",
-        "format-icons": ["", "", "", "", ""],
-        "on-click": "gnome-power-statistics",
-    },
-
-    "network": {
-            "format-wifi": "",
-            "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "",
-        "on-click": "nmcli dev wifi rescan && kitty -- zsh -c nmtui"
-    },
-
-    "pulseaudio": {
-		"format": "{volume}",
-        	"format-muted": "0",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "custom/power": {
-        "format": "    ",
-	"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#ffffff --button-background=#e5e9f0 --button-border=#e5e9f0 --border-bottom=#2e3440 --"
-	},
-
+### Output configuration
+# swaymsg -t get_outputs
+# output eDP-1 pos 0 0 res 1920x1080
+output eDP-1 {
+    pos 1920 300 res 1920x1080
+    scale 1.6
+    # background ~/wallpaper.png fill
 }
+output HDMI-A-1 {
+    pos 0 0 res 1920x1080@74.973Hz
+    # background ~/wallpaper.png fill
+}
+# output HDMI-A-1 pos 1920 0 res 1920x1080
+
+
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+workspace 3 output HDMI-A-1
+workspace 4 output HDMI-A-1
+
+
+# wallpapers
+output * bg /home/user/Pictures/Wallpapers/img1.jpg fill
+
+input "type:keyboard" {
+    xkb_layout us,ru
+    xkb_options grp:win_space_toggle
+    # xkb_options grp:ctrl_shift_toggle
+	}	
+input "1267:12608:ELAN0001:00_04F3:3140_Touchpad" {
+    dwt enabled	# disable-while-typing
+    tap enabled
+    natural_scroll enabled
+    middle_emulation enabled
+    drag disabled
+    pointer_accel 0.04
+    accel_profile adaptive # flat/adaptive
+   }
+
+# Change cursor
+seat seat0 xcursor_theme Twilight-cursors 25
+
+# Disable IDLe
+# xwayland version
+for_window [class="Celluloid"] inhibit_idle fullscreen
+# wayland vesion
+for_window [app_id="Celluloid"] inhibit_idle fullscreen
+
+#
+# Screen capture
+#
+set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
+mode "$screenshot" {
+    bindsym 1 exec 'grim -g "$(slurp)" ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 2 exec 'grim ~/ps_$(date +"%Y%m%d%H%M%S").png', mode "default"
+    bindsym 3 exec 'grim -g "$(slurp)" - | wl-copy', mode "default"
+    bindsym 4 exec 'grim - | wl-copy', mode "default"
+    bindsym 5 exec 'grim -g "$(slurp)" - | swappy -f -', mode "default"
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+Print mode "default"
+}
+bindsym $mod+Print mode "$screenshot"
+
+# Brightness control
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym $mod+XF86MonBrightnessUp exec light -A 2
+bindsym $mod+XF86MonBrightnessDown exec light -U 2
+
+# Audio controls
+# bindsym $mod+Ctrl+p exec pavucontrol
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle 
+bindsym XF86AudioMicMute exec amixer sset Capture toggle
+
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioStop exec playerctl stop
+
+# commands for change output device
+# pactl list sinks
+# pactl set-default-sink
+
+# Other
+# bindsym XF86Calculator exec gnome-calculator
+bindsym --to-code $mod+Shift+f exec firefox
+bindsym --to-code $mod+Shift+n exec thunar
+
+# hide_edge_borders smart
+# smart_borders on
+
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 305 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+    bindsym --to-code $mod+P exec swaylock -f -c 000000
+
+    # Start a terminal
+    bindsym --to-code $mod+Return exec $term
+    # Kill focused window
+    bindsym --to-code $mod+Shift+q kill
+    # Start your launcher
+    bindsym --to-code $mod+d exec $menu
+    # mouse button for dragging.
+    floating_modifier $mod normal
+    # Reload the configuration file
+   bindsym --to-code $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym --to-code $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym --to-code $mod+$left focus left
+    bindsym --to-code $mod+$down focus down
+    bindsym --to-code $mod+$up focus up
+    bindsym --to-code $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym --to-code $mod+Left focus left
+    bindsym --to-code $mod+Down focus down
+    bindsym --to-code $mod+Up focus up
+    bindsym --to-code $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym --to-code $mod+Shift+$left move left
+    bindsym --to-code $mod+Shift+$down move down
+    bindsym --to-code $mod+Shift+$up move up
+    bindsym --to-code $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym --to-code $mod+Shift+Left move left
+    bindsym --to-code $mod+Shift+Down move down
+    bindsym --to-code $mod+Shift+Up move up
+    bindsym --to-code $mod+Shift+Right move right
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym --to-code $mod+1 workspace number 1
+    bindsym --to-code $mod+2 workspace number 2
+    bindsym --to-code $mod+3 workspace number 3
+    bindsym --to-code $mod+4 workspace number 4
+    bindsym --to-code $mod+5 workspace number 5
+    bindsym --to-code $mod+6 workspace number 6
+    bindsym --to-code $mod+7 workspace number 7
+    bindsym --to-code $mod+8 workspace number 8
+    bindsym --to-code $mod+9 workspace number 9
+    bindsym --to-code $mod+0 workspace number 10
+    # Move focused container to workspace
+    bindsym --to-code $mod+Shift+1 move container to workspace number 1
+    bindsym --to-code $mod+Shift+2 move container to workspace number 2
+    bindsym --to-code $mod+Shift+3 move container to workspace number 3
+    bindsym --to-code $mod+Shift+4 move container to workspace number 4
+    bindsym --to-code $mod+Shift+5 move container to workspace number 5
+    bindsym --to-code $mod+Shift+6 move container to workspace number 6
+    bindsym --to-code $mod+Shift+7 move container to workspace number 7
+    bindsym --to-code $mod+Shift+8 move container to workspace number 8
+    bindsym --to-code $mod+Shift+9 move container to workspace number 9
+    bindsym --to-code $mod+Shift+0 move container to workspace number 10
+    # Note: workspaces can have any name you want, not just numbers.
+    # We just use 1-10 as the default.
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym --to-code $mod+b splith
+    bindsym --to-code $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym --to-code $mod+s layout stacking
+    bindsym --to-code $mod+w layout tabbed
+    bindsym --to-code $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym --to-code $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym --to-code $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    # bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym --to-code $mod+a focus parent
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym --to-code $mod+Shift+minus move scratchpad
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return o default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# Status Bar:
+#
+bar {
+	swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
+
+
+
+# Bind App to workspace
+# Check class by : xprop
+# swaymsg -t get_tree
+assign [class="Spotify"] 1
+assign [class="Telegram"] 1
+
+# for running gnome wayland apps. Install polkit-gnome! 
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec udiskie -a -n #-t
+
+# assign [app_id="opacity"] 1
+# exec python3 ~/.config/sway/scripts/opacity.py
+ 
+ 
