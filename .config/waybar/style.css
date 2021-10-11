@@ -115,7 +115,8 @@ window#waybar {
 
 #custom-power{
     background-color: @col1;
-    margin-left: 0;
+    margin-left: 3;
+    padding-left: 1;
     font-size: 12;
 
 }
