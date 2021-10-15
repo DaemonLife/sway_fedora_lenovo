@@ -1,6 +1,6 @@
-![image](https://user-images.githubusercontent.com/52444457/136836758-b4db5194-a660-4291-b058-691da0e6dfe3.png)
+![image](https://user-images.githubusercontent.com/52444457/137558521-bd6cd4ef-7a2c-4f50-a1e6-527811ad629f.png)
 
-# GNOME and SWAY setup for Fedora 34
+# GNOME and SWAY setup for Fedora 34/35
 
 After install add all configs from this repository to your folders. Btw I use Lenovo Ideapad 5 15are05.
 
@@ -187,7 +187,7 @@ Run this command in nvim.
 
 Spotify color theme:
 - https://github.com/khanhas/spicetify-cli
-- https://github.com/morpheusthewhite/spicetify-themes - use Sleek, edit color file for Nord theme to be at the top
+- https://github.com/morpheusthewhite/spicetify-themes
 
 Firefox:
 - https://addons.mozilla.org/en-US/firefox/addon/firefox-nord-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser
