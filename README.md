@@ -1,4 +1,4 @@
-![image](https://user-images.githubusercontent.com/52444457/137558521-bd6cd4ef-7a2c-4f50-a1e6-527811ad629f.png)
+![image](https://user-images.githubusercontent.com/52444457/137558778-827b8d77-61e2-4316-8b68-5e77af6ad1a7.png)
 
 # GNOME and SWAY setup for Fedora 34/35
 
@@ -187,7 +187,7 @@ Run this command in nvim.
 
 Spotify color theme:
 - https://github.com/khanhas/spicetify-cli
-- https://github.com/morpheusthewhite/spicetify-themes
+- https://github.com/morpheusthewhite/spicetify-themes (.config)
 
 Firefox:
 - https://addons.mozilla.org/en-US/firefox/addon/firefox-nord-dark/?utm_content=addons-manager-reviews-link&utm_medium=firefox-browser&utm_source=firefox-browser
