@@ -7,8 +7,8 @@
 # Read `man 5 sway` for a complete reference.
 # font pango: powerline
 font pango: PressStart
-exec wl-paste -t text --watch clipman store
-
+# exec wl-paste -t text --watch clipman store
+# exec cd /home/user/SafeEyes && python3 -m safeeyes
 # gapss and borders
 smart_gaps on
 gaps outer 4
@@ -16,19 +16,19 @@ gaps inner 7
 
 # border artean windows
 # hide_edge_borders both
-smart_borders on
+# smart_borders on
 default_border pixel 5
 titlebar_border_thickness 0
-
 
 # idki
 client.focused          #84a0c6 #84a0c6 #84a0c6 #84a0c6   
 client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440
 client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440
+
 client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
 
 ### Variables
-set $term kitty
+set $term gnome-terminal
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $menu wofi --show=drun 
@@ -42,8 +42,8 @@ set $right l
 # swaymsg -t get_outputs
 # output eDP-1 pos 0 0 res 1920x1080
 output eDP-1 {
-    pos 1920 300 res 1920x1080
-    scale 1.6
+    pos 1920 300 res 1920x1080@60.001Hz
+    scale 1
     # background ~/wallpaper.png fill
 }
 output HDMI-A-1 {
@@ -271,12 +271,10 @@ bindsym $mod+r mode "resize"
 # Status Bar:
 #
 bar {
-	swaybar_command waybar
+    swaybar_command waybar
 }
 
 include /etc/sway/config.d/*
-
-
 
 # Bind App to workspace
 # Check class by : xprop
@@ -291,4 +289,5 @@ exec udiskie -a -n #-t
 # assign [app_id="opacity"] 1
 # exec python3 ~/.config/sway/scripts/opacity.py
  
+exec wl-paste -t TEXT
  
