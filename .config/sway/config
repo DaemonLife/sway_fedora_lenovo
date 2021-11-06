@@ -2,6 +2,13 @@
 #
 # include colorscheme
 
+exec lxpolkit
+exec systemctl --user import-environment
+
+#
+# Status Bar:
+#
+
 # xwayland disable
 
 # Read `man 5 sway` for a complete reference.
@@ -40,18 +47,16 @@ set $right l
 
 ### Output configuration
 # swaymsg -t get_outputs
-# output eDP-1 pos 0 0 res 1920x1080
+
 output eDP-1 {
-    pos 1920 300 res 1920x1080@60.001Hz
+    pos 0 0 res 1920x1080@60.001Hz
     scale 1
     # background ~/wallpaper.png fill
 }
 output HDMI-A-1 {
-    pos 0 0 res 1920x1080@74.973Hz
+    pos 1920 0 res 1920x1080@74.973Hz
     # background ~/wallpaper.png fill
 }
-# output HDMI-A-1 pos 1920 0 res 1920x1080
-
 
 workspace 1 output eDP-1
 workspace 2 output HDMI-A-1
@@ -267,9 +272,6 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
 bar {
     swaybar_command waybar
 }
@@ -279,10 +281,11 @@ include /etc/sway/config.d/*
 # Bind App to workspace
 # Check class by : xprop
 # swaymsg -t get_tree
-assign [class="Spotify"] 1
-assign [class="Telegram"] 1
+# assign [class="Spotify"] 1
+# assign [class="Telegram"] 1
 
 # for running gnome wayland apps. Install polkit-gnome! 
+# exec systemctl --user import-environment
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec udiskie -a -n #-t
 
