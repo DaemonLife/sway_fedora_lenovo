@@ -49,12 +49,12 @@ set $right l
 # swaymsg -t get_outputs
 
 output eDP-1 {
-    pos 0 0 res 1920x1080@60.001Hz
+    pos 1920 300 res 1920x1080@60.001Hz
     scale 1
     # background ~/wallpaper.png fill
 }
 output HDMI-A-1 {
-    pos 1920 0 res 1920x1080@74.973Hz
+    pos 0 0 res 1920x1080@74.973Hz
     # background ~/wallpaper.png fill
 }
 
@@ -134,7 +134,6 @@ bindsym XF86AudioStop exec playerctl stop
 # Other
 # bindsym XF86Calculator exec gnome-calculator
 bindsym --to-code $mod+Shift+f exec firefox
-bindsym --to-code $mod+Shift+n exec thunar
 
 # hide_edge_borders smart
 # smart_borders on
@@ -150,7 +149,7 @@ exec swayidle -w \
     # Start a terminal
     bindsym --to-code $mod+Return exec $term
     # Kill focused window
-    bindsym --to-code $mod+Shift+q kill
+    bindsym --to-code $mod+q kill
     # Start your launcher
     bindsym --to-code $mod+d exec $menu
     # mouse button for dragging.
@@ -198,6 +197,11 @@ exec swayidle -w \
     bindsym --to-code $mod+8 workspace number 8
     bindsym --to-code $mod+9 workspace number 9
     bindsym --to-code $mod+0 workspace number 10
+    
+    bindsym --to-code $mod+Ctrl+Right workspace next
+    bindsym --to-code $mod+Ctrl+Left workspace prev
+
+
     # Move focused container to workspace
     bindsym --to-code $mod+Shift+1 move container to workspace number 1
     bindsym --to-code $mod+Shift+2 move container to workspace number 2
