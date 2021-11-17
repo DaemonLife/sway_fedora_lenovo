@@ -23,22 +23,24 @@ window#waybar {
 }
 
 
-#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep{
+#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep, #tray{
     /* margin-right: 3px; */
     /* margin-left: 3px; */
-    padding: 0 4 0 4;
+    padding: 0 6 0 6;
     font-size: 12px;
     font-weight: bold;
     color: @col3;
 }
 
+
+
 #workspaces button {
-    background-color: @col4;
+    background-color: #3b4252;
     font-weight: bold;
     margin: 0 0 0 0;
     border-radius: 0;
-    padding-right: 10;
-    padding-left: 10;
+    padding-right: 5;
+    padding-left: 5;
     font-size: 12px;
 
 }
@@ -58,7 +60,7 @@ window#waybar {
 
 #tray {
     background-color: @col4;
-    margin-right: 3px;
+    /* margin-right: 3px; */
 }
 
 #custom-sep{
@@ -115,8 +117,17 @@ window#waybar {
 
 #custom-power{
     background-color: @col1;
-    margin-left: 3;
-    padding-left: 1;
+    margin-left: 0;
+    padding-left: 0;
     font-size: 12;
 
+}
+
+
+#battery, #network, #idle_inhibitor, #tray{
+    background-color: #3b4252;
+}
+
+#clock, #pulseaudio, #bluetooth, #language{
+    background-color: #3b4252;
 }
