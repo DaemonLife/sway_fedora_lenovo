@@ -6,7 +6,7 @@
 
     "modules-center": ["sway/window"],
 
-    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "bluetooth", "network", "custom/sep", "pulseaudio", "battery", "custom/sep", "clock", "custom/power"],
+    "modules-right": ["tray", "custom/sep", "sway/language", "custom/sep", "idle_inhibitor", "custom/sep", "network", "custom/sep", "pulseaudio", "custom/sep", "battery", "custom/sep", "clock", "custom/sep", "custom/power"],
 
 
 
@@ -16,7 +16,7 @@
 	"all-outputs": true,
 	"format": "{icon}",
  	"persistent_workspaces": {
-	},
+        },
        	"format-icons": {
        		"1": "1",
        		"2": "2",
@@ -60,7 +60,7 @@
     },
     
     "custom/sep": {
-        "format": "",
+        "format": " ",
     },
     
     "sway/language": {
@@ -70,7 +70,8 @@
     
     "clock": {
        	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-       	"format": "{:%R}"
+       	"format": "{:%R}",
+        "on-click": "exec gnome-calendar",
     },
 
     "battery": {
@@ -81,8 +82,8 @@
         },
         "interval": 30,
         "format": "{icon} {capacity}%",
-        "format-charging": "{capacity}",
-        "format-plugged": "{capacity}",
+        "format-charging": "{icon} +{capacity}%",
+        "format-plugged": "{capacity}%",
         "format-alt": "{time} {icon}",
         "format-icons": ["", "", "", "", ""],
         "on-click": "gnome-power-statistics",
@@ -95,7 +96,8 @@
         "format-ethernet": " {ipaddr}/{cidr}",
         "format-linked": " (No IP)",
         "format-disconnected": "睊 Disconnected",
-        "format-alt": " {ipaddr}/{cidr}"
+        "format-alt": " {ipaddr}/{cidr}",
+        "on-click-right": "nmcli dev wifi rescan && gnome-terminal -- zsh -c nmtui",
     },
 
 "pulseaudio": {
