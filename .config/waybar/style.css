@@ -1,9 +1,7 @@
-@define-color col1 #84a0c6;
-@define-color col2 #00afb9;
-@define-color col3 #faf9f9;
-@define-color col4 #2e3440;
-@define-color col5 #0E606B;
-@define-color col6 #FFC24B;
+@define-color darkest #2e3440;
+@define-color dark #3b4252;
+@define-color white #faf9f9;
+@define-color accent #84a0c6;
 
 
 * {
@@ -18,7 +16,7 @@
 }
 
 window#waybar {
-    background-color: #2e3440
+    background-color: @darkest;
     
 }
 
@@ -29,13 +27,13 @@ window#waybar {
     padding: 0 6 0 6;
     font-size: 12px;
     font-weight: bold;
-    color: @col3;
+    color: @white;
 }
 
 
 
 #workspaces button {
-    background-color: #3b4252;
+    background-color: @darkest;
     font-weight: bold;
     margin: 0 0 0 0;
     border-radius: 0;
@@ -45,7 +43,7 @@ window#waybar {
 
 }
 #workspaces button.focused {
-    background-color: @col1;
+    background-color: @accent;
     font-weight: bold;
     }
 
@@ -54,51 +52,41 @@ window#waybar {
 #window{
     font-weight: bold;
     padding: 0 10 0 10;
-    background-color: @col1; 
-    color: @col3;
+    background-color: @darkest; 
+    color: @white;
 }
 
 #tray {
-    background-color: @col4;
     /* margin-right: 3px; */
 }
 
 #custom-sep{
-    background-color: @col4;
     font-weight: bolder;
     padding: 0 0 0 0
 }
 
 #language{
-    background-color: @col4;
     margin-top: -1
 }
 
 #idle_inhibitor{
-    background-color: @col4;
 }
 
 #bluetooth{
-    background-color: @col4;
-    /* color: #5e81ac; */
 }
 
 #network {
-    background-color: @col4;
 }
 #network.disconnected {
-    color: @col1;
 }
 
 #pulseaudio{
-    background-color: @col4;
 }
 
 #battery{
-    background-color: @col4;
 } 
 #battery.warning:not(.charging) {
-    color: white;
+    color: @white;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -107,27 +95,24 @@ window#waybar {
 }
 @keyframes blink {
     to {
-        color: @col1;
+        color: @accent;
     }
 }
 
 #clock {
-    background-color: @col4;
 }
 
 #custom-power{
-    background-color: @col1;
     margin-left: 0;
     padding-left: 0;
     font-size: 12;
-
 }
 
 
-#battery, #network, #idle_inhibitor, #tray{
-    background-color: #3b4252;
+#custom-power, #battery, #network, #idle_inhibitor, #tray{
+    background-color: @dark;
 }
 
 #clock, #pulseaudio, #bluetooth, #language{
-    background-color: #3b4252;
+    background-color: @dark;
 }
