@@ -21,16 +21,12 @@ window#waybar {
 }
 
 
-#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep, #tray{
-    /* margin-right: 3px; */
-    /* margin-left: 3px; */
+#language, #idle_inhibitor, #bluetooth, #network, #pulseaudio, #battery, #date, #clock, #custom-sep, #tray {
     padding: 0 6 0 6;
     font-size: 12px;
     font-weight: bold;
     color: @white;
 }
-
-
 
 #workspaces button {
     background-color: @darkest;
@@ -40,12 +36,12 @@ window#waybar {
     padding-right: 5;
     padding-left: 5;
     font-size: 12px;
-
 }
+
 #workspaces button.focused {
     background-color: @accent;
     font-weight: bold;
-    }
+}
 
 /* #workspaces button */
 
