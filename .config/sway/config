@@ -4,6 +4,7 @@
 
 exec lxpolkit
 exec systemctl --user import-environment
+exec libinput-gestures-setup start
 
 #
 # Status Bar:
@@ -12,33 +13,38 @@ exec systemctl --user import-environment
 # xwayland disable
 
 # Read `man 5 sway` for a complete reference.
-# font pango: powerline
-font pango: PressStart
-# exec wl-paste -t text --watch clipman store
+# font pango:powerline
+# font pango:PressStart
+# font pango:ttf-dejavu
+font pango:SourceCodePro Medium 14
 # exec cd /home/user/SafeEyes && python3 -m safeeyes
+
 # gapss and borders
 smart_gaps on
 gaps outer 4
-gaps inner 7
+gaps inner 8
 
 # border artean windows
 # hide_edge_borders both
-# smart_borders on
-default_border pixel 5
+smart_borders on
+default_border pixel 4
 titlebar_border_thickness 0
 
-# idki
-client.focused          #84a0c6 #84a0c6 #84a0c6 #84a0c6   
-client.focused_inactive #2E3440 #2E3440 #2E3440 #2E3440
-client.unfocused        #2E3440 #2E3440 #2E3440 #2E3440
+default_floating_border none
 
-client.urgent           #ebcb8b #ebcb8b #2e3440 #8fbcbb   #ebcb8b
+# idki
+client.focused          #84a0c6 #84a0c6 #eceff4 #84a0c6   
+client.focused_inactive #2E3440 #2E3440 #eceff4 #2E3440
+client.unfocused        #2E3440 #2E3440 #eceff4 #2E3440
+
+client.urgent           #2E3440 #2E3440 #2E3440 #2E3440
 
 ### Variables
 set $term gnome-terminal
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
-set $menu wofi --show=drun 
+# set $menu rofi -show drun
+set $menu wofi #--show=drun 
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -49,13 +55,19 @@ set $right l
 # swaymsg -t get_outputs
 
 output eDP-1 {
+    # msk
     pos 1920 300 res 1920x1080@60.001Hz
+    # gg
+    # pos 0 0 res 1920x1080@60.001Hz
     scale 1
-    # background ~/wallpaper.png fill
+    adaptive_sync on
 }
 output HDMI-A-1 {
+    # msk
     pos 0 0 res 1920x1080@74.973Hz
-    # background ~/wallpaper.png fill
+    # gg
+    # pos 1920 0 res 1920x1080@60.000Hz
+    adaptive_sync on
 }
 
 workspace 1 output eDP-1
@@ -63,9 +75,8 @@ workspace 2 output HDMI-A-1
 workspace 3 output HDMI-A-1
 workspace 4 output HDMI-A-1
 
-
 # wallpapers
-output * bg /home/user/Pictures/Wallpapers/img1.jpg fill
+output * bg /home/user/Pictures/Wallpapers/wall.jpg fill
 
 input "type:keyboard" {
     xkb_layout us,ru
@@ -134,17 +145,18 @@ bindsym XF86AudioStop exec playerctl stop
 # Other
 # bindsym XF86Calculator exec gnome-calculator
 bindsym --to-code $mod+Shift+f exec firefox
+bindsym --to-code $mod+Shift+t exec thunar
 
 # hide_edge_borders smart
 # smart_borders on
 
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
-    timeout 305 'swaymsg "output * dpms off"' \
+    timeout 350 'swaymsg "output * dpms off"' \
         resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
+    before-sleep 'swaylock -C ~/.config/swaylock/config'
 
-    bindsym --to-code $mod+P exec swaylock -f -c 000000
+    bindsym --to-code $mod+P exec swaylock -C ~/.config/swaylock/config
 
     # Start a terminal
     bindsym --to-code $mod+Return exec $term
@@ -198,8 +210,8 @@ exec swayidle -w \
     bindsym --to-code $mod+9 workspace number 9
     bindsym --to-code $mod+0 workspace number 10
     
-    bindsym --to-code $mod+Ctrl+Right workspace next
-    bindsym --to-code $mod+Ctrl+Left workspace prev
+    bindsym --to-code Ctrl+$mod+Right workspace next
+    bindsym --to-code Ctrl+$mod+Left workspace prev
 
 
     # Move focused container to workspace
@@ -297,4 +309,3 @@ exec udiskie -a -n #-t
 # exec python3 ~/.config/sway/scripts/opacity.py
  
 exec wl-paste -t TEXT
- 
